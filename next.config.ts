@@ -22,9 +22,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  turbopack: {
-    root: process.cwd(),
-  },
+  transpilePackages: ["recharts"],
 };
 
 export default nextConfig;

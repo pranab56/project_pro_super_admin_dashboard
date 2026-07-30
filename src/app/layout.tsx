@@ -21,8 +21,8 @@ const geistMono = Geist_Mono({
 // });
 
 export const metadata: Metadata = {
-  title: "Cat Admin Dashboard",
-  description: "Cat Admin Dashboard",
+  title: "Super Admin Dashboard",
+  description: "Super Admin Dashboard",
 };
 
 export default function RootLayout({
