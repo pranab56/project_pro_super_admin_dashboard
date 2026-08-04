@@ -54,7 +54,7 @@ const sidebars: SidebarItem[] = [
   { name: "Dashboard Overview", path: "/dashboard-overview", icon: Users },
   { name: "User Management", path: "/user-management", icon: Users },
   { name: "Property Manager Approval", path: "/property-manager-approval", icon: ClipboardCheck },
-  { name: "Property Managers", path: "/property-managers", icon: Building2 },
+  { name: "Property Partners", path: "/property-managers", icon: Building2 },
   { name: "Property Review", path: "/property-review", icon: Home },
   { name: "Provider Applicants", path: "/provider-applicants", icon: HardHat },
   { name: "Maintenance Requests", path: "/maintenance-requests", icon: Wrench },

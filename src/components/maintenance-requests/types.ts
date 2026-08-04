@@ -18,6 +18,7 @@ export type ServiceRequestItem = {
   finalPayCalculated?: number;
   notes: string;
   etaDate: string;
+  isSpecialized?: boolean;
 };
 
 export const initialRequestsList: ServiceRequestItem[] = [
@@ -34,6 +35,7 @@ export const initialRequestsList: ServiceRequestItem[] = [
     basePay: 250,
     notes: "Tenant reports water pooling under the sink. Has been ongoing for 3 days.",
     etaDate: "Jun 27, 2026",
+    isSpecialized: false,
   },
   {
     id: "SR-1297",
@@ -48,6 +50,7 @@ export const initialRequestsList: ServiceRequestItem[] = [
     basePay: 180,
     notes: "Main breaker keeps tripping when microwave and toaster are used.",
     etaDate: "Jun 25, 2026",
+    isSpecialized: false,
   },
   {
     id: "SR-1296",
@@ -62,6 +65,7 @@ export const initialRequestsList: ServiceRequestItem[] = [
     basePay: 320,
     notes: "AC compressor makes rattling noise during peak heat hours.",
     etaDate: "Jun 26, 2026",
+    isSpecialized: false,
   },
   {
     id: "SR-1295",
@@ -76,6 +80,7 @@ export const initialRequestsList: ServiceRequestItem[] = [
     basePay: 350,
     notes: "Tenant move-in scheduled for next Monday. Requires full sanitization.",
     etaDate: "Jun 28, 2026",
+    isSpecialized: false,
   },
   {
     id: "SR-1294",
@@ -92,6 +97,7 @@ export const initialRequestsList: ServiceRequestItem[] = [
     finalPayCalculated: 1275,
     notes: "Wall patching and dual-coat eggshell white paint.",
     etaDate: "Jun 29, 2026",
+    isSpecialized: true,
   },
   {
     id: "SR-1293",
@@ -108,6 +114,7 @@ export const initialRequestsList: ServiceRequestItem[] = [
     finalPayCalculated: 1023.5,
     notes: "Old 50-gallon tank replaced with new energy efficient unit.",
     etaDate: "Jun 21, 2026",
+    isSpecialized: true,
   },
   {
     id: "SR-1292",
@@ -122,6 +129,7 @@ export const initialRequestsList: ServiceRequestItem[] = [
     basePay: 280,
     notes: "Fan fixture mounted and remote control configured.",
     etaDate: "Jun 20, 2026",
+    isSpecialized: false,
   },
   {
     id: "SR-1291",
@@ -136,5 +144,6 @@ export const initialRequestsList: ServiceRequestItem[] = [
     basePay: 420,
     notes: "Inspection rescheduled by building property manager.",
     etaDate: "Jun 18, 2026",
+    isSpecialized: false,
   },
 ];

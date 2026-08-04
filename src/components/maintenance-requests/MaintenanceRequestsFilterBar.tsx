@@ -28,9 +28,9 @@ export default function MaintenanceRequestsFilterBar({
   ];
 
   return (
-    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-gray-200/80 pb-1">
       {/* Tabs */}
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="flex items-center gap-6 overflow-x-auto no-scrollbar">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.key;
           return (
@@ -38,16 +38,18 @@ export default function MaintenanceRequestsFilterBar({
               key={tab.key}
               type="button"
               onClick={() => setActiveTab(tab.key)}
-              className={`px-3.5 py-2 rounded-md text-xs font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
+              className={`pb-3 text-xs sm:text-sm font-semibold transition-all cursor-pointer flex items-center gap-2 whitespace-nowrap border-b-2 ${
                 isActive
-                  ? "bg-[#E1D4F4] text-[#8E25E3] border border-purple-300 shadow-2xs"
-                  : "bg-[#EBEBEB] text-gray-700 hover:bg-gray-300/80 border border-gray-300/50"
+                  ? "border-[#8E25E3] text-[#8E25E3]"
+                  : "border-transparent text-gray-500 hover:text-gray-800"
               }`}
             >
               <span>{tab.label}</span>
               <span
-                className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
-                  isActive ? "bg-[#8E25E3] text-white" : "bg-gray-300 text-gray-800"
+                className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${
+                  isActive
+                    ? "bg-[#E1D4F4] text-[#8E25E3]"
+                    : "bg-gray-200/80 text-gray-600"
                 }`}
               >
                 {tab.count}
@@ -58,15 +60,16 @@ export default function MaintenanceRequestsFilterBar({
       </div>
 
       {/* Search Input */}
-      <div className="w-full md:w-64">
+      <div className="relative w-full md:w-64 pb-2 md:pb-0">
         <input
           type="text"
-          placeholder="Search requests or properties..."
+          placeholder="Search..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full px-4 py-3.5 bg-[#EBEBEB] border border-gray-300/60 rounded-md text-xs font-medium text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 transition-colors"
+          className="w-full px-3.5 py-2.5 bg-[#F3F4F6]/80 border border-gray-200/90 rounded-xl text-xs font-medium text-gray-800 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 focus:border-transparent transition-all"
         />
       </div>
     </div>
   );
 }
+

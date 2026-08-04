@@ -11,22 +11,23 @@ export default function MaintenanceRequestsHeader({ onOpenNewRequest }: Maintena
   return (
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
-        <h1 className="text-2xl sm:text-3xl font-medium text-gray-900 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
           Service Requests
         </h1>
         <p className="text-sm text-gray-500 font-normal mt-1">
-          Monitor contractor assignments, job statuses, and specialized rates.
+          Track, assign, and manage all property service jobs
         </p>
       </div>
 
       <button
         type="button"
         onClick={onOpenNewRequest}
-        className="px-4 py-2.5 bg-[#8E25E3] hover:bg-[#781dc6] text-white font-medium text-xs rounded-md shadow-xs transition-colors cursor-pointer flex items-center justify-center gap-1.5 shrink-0"
+        className="px-4 py-2.5 bg-[#8E25E3] hover:bg-[#7b1bd1] text-white font-semibold text-xs rounded-xl shadow-xs transition-all cursor-pointer flex items-center justify-center gap-1.5 shrink-0"
       >
-        <Plus className="w-4 h-4" />
-        <span>Create Service Request</span>
+        <Plus className="w-4 h-4 stroke-[2.5]" />
+        <span>New Request</span>
       </button>
     </div>
   );
 }
+

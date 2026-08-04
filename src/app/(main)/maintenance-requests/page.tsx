@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import {
   FilterTab,
   initialRequestsList,
+  JobStatus,
   PriorityLevel,
   ServiceCategory,
   ServiceRequestItem,
@@ -41,26 +42,43 @@ export default function MaintenanceRequestsPage() {
   const handleOpenJobModal = (job: ServiceRequestItem) => {
     setSelectedJob(job);
     setAssignedContractor(job.contractor);
-    setIsSpecializedRateActive(!!job.rateBonus);
-    setRateValue(job.rateBonus ? job.rateBonus.replace(/[^0-9.]/g, "") : "");
+    setIsSpecializedRateActive(job.isSpecialized || !!job.rateBonus);
+    if (job.rateBonus) {
+      if (job.rateBonus.includes("%")) {
+        setPaymentType("Percentage");
+      } else {
+        setPaymentType("Flat Amount");
+      }
+      setRateValue(job.rateBonus.replace(/[^0-9.]/g, ""));
+    } else {
+      setRateValue("");
+    }
     setSelectedReason("");
   };
 
-  const handleSaveJob = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSaveJob = (updatedJob: {
+    status: JobStatus;
+    etaDate: string;
+    contractor: string;
+    basePay: number;
+    isSpecialized: boolean;
+    paymentType: "Percentage" | "Flat Amount";
+    rateValue: string;
+    selectedReason: string;
+  }) => {
     if (!selectedJob) return;
 
     let bonusStr: string | undefined = undefined;
-    let finalPay = selectedJob.basePay;
+    let finalPay = updatedJob.basePay;
 
-    if (isSpecializedRateActive && rateValue) {
-      const valNum = parseFloat(rateValue) || 0;
-      if (paymentType === "Percentage") {
+    if (updatedJob.isSpecialized && updatedJob.rateValue) {
+      const valNum = parseFloat(updatedJob.rateValue) || 0;
+      if (updatedJob.paymentType === "Percentage") {
         bonusStr = `+${valNum}%`;
-        finalPay = selectedJob.basePay + (selectedJob.basePay * valNum) / 100;
+        finalPay = updatedJob.basePay + (updatedJob.basePay * valNum) / 100;
       } else {
         bonusStr = `+$${valNum}`;
-        finalPay = selectedJob.basePay + valNum;
+        finalPay = updatedJob.basePay + valNum;
       }
     }
 
@@ -69,16 +87,19 @@ export default function MaintenanceRequestsPage() {
         r.id === selectedJob.id
           ? {
               ...r,
-              contractor: assignedContractor,
+              status: updatedJob.status,
+              etaDate: updatedJob.etaDate,
+              contractor: updatedJob.contractor,
+              basePay: updatedJob.basePay,
+              isSpecialized: updatedJob.isSpecialized,
               rateBonus: bonusStr,
-              finalPayCalculated: isSpecializedRateActive ? finalPay : undefined,
-              status: assignedContractor !== "Unassigned" && r.status === "Pending" ? "Assigned" : r.status,
+              finalPayCalculated: updatedJob.isSpecialized ? finalPay : undefined,
             }
           : r
       )
     );
 
-    toast.success(`Job ${selectedJob.id} updated and assigned to ${assignedContractor}!`);
+    toast.success(`Job ${selectedJob.id} updated successfully!`);
     setSelectedJob(null);
   };
 
@@ -103,6 +124,7 @@ export default function MaintenanceRequestsPage() {
       basePay: newBasePay,
       notes: "Newly submitted maintenance request.",
       etaDate: "Jun 28, 2026",
+      isSpecialized: false,
     };
 
     setRequests([newReq, ...requests]);
@@ -189,3 +211,4 @@ export default function MaintenanceRequestsPage() {
     </div>
   );
 }
+
