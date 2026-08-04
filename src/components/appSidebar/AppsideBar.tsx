@@ -26,25 +26,19 @@ import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { removeToken } from "@/utils/storage";
+import Image from "next/image";
 
 function ProjexProLogo() {
   return (
     <div className="flex items-center gap-2.5">
-      {/* Roof/Chevron Stack Icon */}
-      <svg width="38" height="38" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 4L4 17.5H12L22 10L32 17.5H40L22 4Z" fill="#FF9F00" />
-        <path d="M22 13L8 23.5H16L22 19L28 23.5H36L22 13Z" fill="#F59E0B" />
-        <path d="M22 22L12 29.5H19.5L22 27.6L24.5 29.5H32L22 22Z" fill="#D97706" />
-      </svg>
-      <div className="flex flex-col">
-        <div className="flex items-center leading-none text-xl md:text-2xl font-bold tracking-tight">
-          <span className="text-[#5B1B95]">Projex</span>
-          <span className="text-[#A327EE]">Pro</span>
-        </div>
-        <span className="text-[9px] text-gray-500 font-medium tracking-tight mt-0.5">
-          property services, simplified
-        </span>
-      </div>
+      <Image
+        src="/logo/logo.png"
+        alt="ProjexPro Logo"
+        width={220}
+        height={60}
+        className="h-15 w-auto object-contain"
+        priority
+      />
     </div>
   );
 }
@@ -108,8 +102,8 @@ export default function OptimusSidebar() {
                   <SidebarMenuButton
                     asChild
                     className={`h-11 px-4 rounded-lg transition-all duration-200 flex items-center justify-between w-full cursor-pointer ${active
-                        ? "bg-[#E1D4F4] text-[#8E25E3] font-semibold hover:bg-[#E1D4F4] hover:text-[#8E25E3]"
-                        : "text-gray-600 hover:bg-gray-200/70 hover:text-gray-900 font-medium"
+                      ? "bg-[#E1D4F4] text-[#8E25E3] font-semibold hover:bg-[#E1D4F4] hover:text-[#8E25E3]"
+                      : "text-gray-600 hover:bg-gray-200/70 hover:text-gray-900 font-medium"
                       }`}
                   >
                     <Link href={item.path} className="flex items-center justify-between w-full">
