@@ -14,7 +14,6 @@ import {
   ClipboardCheck,
   CreditCard,
   HardHat,
-  Home,
   LayoutGrid,
   LogOut,
   Settings,
