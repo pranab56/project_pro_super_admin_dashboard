@@ -43,7 +43,7 @@ export default function PendingProperty() {
     };
 
     return (
-        <div className="lg:col-span-6 bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-6 shadow-xs">
+        <div className="lg:col-span-6 bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-6 shadow-xs">
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-base font-bold text-gray-900">Pending Property Approvals</h2>
                 <span className="px-2.5 py-1 rounded-full bg-amber-100/60 text-amber-500 text-xs font-bold">
@@ -60,7 +60,7 @@ export default function PendingProperty() {
                     pendingProperties.map((p) => (
                         <div
                             key={p.id}
-                            className="bg-[#EBEBEB] border border-gray-300/50 rounded-xl p-3.5 flex items-center justify-between transition-colors shadow-2xs"
+                            className="bg-gray-50 border border-[#E5E7EB] rounded-xl p-3.5 flex items-center justify-between transition-colors shadow-2xs"
                         >
                             <div className="flex items-center gap-3">
                                 <div className="p-2.5 rounded-lg bg-blue-100/80 text-blue-600 shrink-0">

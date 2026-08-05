@@ -37,7 +37,7 @@ export default function EditPartnerModal({
           <button
             type="button"
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 font-bold cursor-pointer"
+            className="text-gray-400 hover:text-gray-700 hover:bg-gray-200 p-1.5 rounded-full transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -60,7 +60,7 @@ export default function EditPartnerModal({
               value={partner.plan}
               onValueChange={(val) => setPartner({ ...partner, plan: val as PlanType })}
             >
-              <SelectTrigger className="w-full bg-[#EBEBEB] border-gray-300/60 rounded-md h-11 py-5 text-xs font-medium text-gray-700 cursor-pointer">
+              <SelectTrigger className="w-full bg-[#FFFFFF] border-[#E5E7EB] rounded-md h-11 py-5 text-xs font-medium text-gray-700 cursor-pointer">
                 <SelectValue placeholder="Select Plan" />
               </SelectTrigger>
               <SelectContent className="bg-white border border-gray-200 text-xs font-medium text-gray-800 shadow-md">
@@ -77,7 +77,7 @@ export default function EditPartnerModal({
               value={partner.status}
               onValueChange={(val) => setPartner({ ...partner, status: val as PartnerStatus })}
             >
-              <SelectTrigger className="w-full bg-[#EBEBEB] border-gray-300/60 rounded-md h-11 py-5 text-xs font-medium text-gray-700 cursor-pointer">
+              <SelectTrigger className="w-full bg-[#FFFFFF] border-[#E5E7EB] rounded-md h-11 py-5 text-xs font-medium text-gray-700 cursor-pointer">
                 <SelectValue placeholder="Select Status" />
               </SelectTrigger>
               <SelectContent className="bg-white border border-gray-200 text-xs font-medium text-gray-800 shadow-md">

@@ -21,7 +21,7 @@ export default function PropertyReviewGrid({
 }: PropertyReviewGridProps) {
   if (properties.length === 0) {
     return (
-      <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-10 text-center text-gray-500 font-medium">
+      <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-10 text-center text-gray-500 font-medium">
         No properties in &quot;{activeTab}&quot; state.
       </div>
     );
@@ -32,7 +32,7 @@ export default function PropertyReviewGrid({
       {properties.map((prop) => (
         <div
           key={prop.id}
-          className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl overflow-hidden shadow-xs flex flex-col justify-between"
+          className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl overflow-hidden shadow-xs flex flex-col justify-between"
         >
           <div>
             {/* Image Header */}
@@ -85,7 +85,7 @@ export default function PropertyReviewGrid({
           </div>
 
           {/* Footer Action Bar */}
-          <div className="p-4 bg-[#EBEBEB] border-t border-gray-300/60 flex items-center justify-between gap-2">
+          <div className="p-4 bg-[#FFFFFF] border-t border-[#E5E7EB] flex items-center justify-between gap-2">
             <button
               type="button"
               onClick={() => setSelectedProperty(prop)}

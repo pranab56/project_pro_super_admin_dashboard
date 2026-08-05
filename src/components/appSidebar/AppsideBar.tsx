@@ -55,7 +55,7 @@ const sidebars: SidebarItem[] = [
   { name: "User Management", path: "/user-management", icon: Users },
   { name: "Property Manager Approval", path: "/property-manager-approval", icon: ClipboardCheck },
   { name: "Property Partners", path: "/property-managers", icon: Building2 },
-  { name: "Property Review", path: "/property-review", icon: Home },
+  // { name: "Property Review", path: "/property-review", icon: Home },
   { name: "Provider Applicants", path: "/provider-applicants", icon: HardHat },
   { name: "Maintenance Requests", path: "/maintenance-requests", icon: Wrench },
   { name: "Invoices & Payments", path: "/invoices", icon: CreditCard },
@@ -84,16 +84,16 @@ export default function OptimusSidebar() {
 
   return (
     <>
-      <Sidebar className="border-r border-gray-300/80 bg-[#EBEBEB]">
+      <Sidebar className="border-r border-[#E5E7EB] bg-[#FFFFFF]">
         {/* Header Logo */}
-        <SidebarHeader className="p-4 sm:p-5 border-b border-gray-300 bg-[#EBEBEB]">
+        <SidebarHeader className="h-[81px] px-4 sm:px-5 border-b border-[#E5E7EB] bg-[#FFFFFF] flex items-center justify-start shrink-0">
           <Link href="/" className="block">
             <ProjexProLogo />
           </Link>
         </SidebarHeader>
 
         {/* Main Menu items */}
-        <SidebarContent className="bg-[#EBEBEB] p-3">
+        <SidebarContent className="bg-[#FFFFFF] p-3">
           <SidebarMenu className="space-y-1.5">
             {sidebars.map((item) => {
               const active = isActive(item.path);
@@ -121,7 +121,7 @@ export default function OptimusSidebar() {
         </SidebarContent>
 
         {/* Footer Logout Button */}
-        <SidebarFooter className="p-3 border-t border-gray-300 bg-[#EBEBEB]">
+        <SidebarFooter className="p-3 border-t border-[#E5E7EB] bg-[#FFFFFF]">
           <button
             type="button"
             onClick={() => setShowLogoutModal(true)}

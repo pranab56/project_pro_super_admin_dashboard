@@ -16,7 +16,7 @@ export default function PropertyManagersStats({
       {stats.map((item) => (
         <div
           key={item.id}
-          className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-5 shadow-xs flex flex-col justify-between"
+          className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-5 shadow-xs flex flex-col justify-between"
         >
           <h2 className={`text-3xl font-bold ${item.textColor}`}>{item.value}</h2>
           <p className="text-xs font-medium text-gray-600 mt-2">{item.title}</p>

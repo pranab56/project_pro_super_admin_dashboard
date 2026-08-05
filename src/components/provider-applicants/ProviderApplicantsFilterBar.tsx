@@ -26,8 +26,8 @@ export default function ProviderApplicantsFilterBar({
 }: ProviderApplicantsFilterBarProps) {
   const tabs: { key: FilterTab; label: string; count: number }[] = [
     { key: "All", label: "All", count: counts.all },
-    { key: "Pending", label: "Pending", count: counts.pending },
     { key: "Approved", label: "Approved", count: counts.approved },
+    { key: "Pending", label: "Pending", count: counts.pending },
     { key: "Action Required", label: "Action Required", count: counts.actionRequired },
     { key: "Rejected", label: "Rejected", count: counts.rejected },
   ];
@@ -43,16 +43,16 @@ export default function ProviderApplicantsFilterBar({
               key={tab.key}
               type="button"
               onClick={() => setActiveTab(tab.key)}
-              className={`px-3.5 py-2 rounded-md text-xs font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
+              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer flex items-center gap-2 ${
                 isActive
-                  ? "bg-[#E1D4F4] text-[#8E25E3] border border-purple-300 shadow-2xs"
-                  : "bg-[#EBEBEB] text-gray-700 hover:bg-gray-300/80 border border-gray-300/50"
+                  ? "bg-[#F3E8FF] text-[#8E25E3] border border-[#8E25E3] shadow-2xs font-bold"
+                  : "bg-[#FFFFFF] text-gray-700 hover:bg-gray-50 border border-[#E5E7EB]"
               }`}
             >
               <span>{tab.label}</span>
               <span
-                className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
-                  isActive ? "bg-[#8E25E3] text-white" : "bg-gray-300 text-gray-800"
+                className={`px-2 py-0.5 rounded-full text-[11px] font-bold ${
+                  isActive ? "bg-[#8E25E3] text-white" : "bg-gray-200 text-gray-700"
                 }`}
               >
                 {tab.count}
@@ -69,7 +69,7 @@ export default function ProviderApplicantsFilterBar({
           placeholder="Search contractors..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full px-4 py-3.5 bg-[#EBEBEB] border border-gray-300/60 rounded-md text-xs font-medium text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 transition-colors"
+          className="w-full px-4 py-2.5 bg-[#FFFFFF] border border-[#E5E7EB] rounded-lg text-xs sm:text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/20 focus:border-[#8E25E3] transition-colors"
         />
       </div>
     </div>

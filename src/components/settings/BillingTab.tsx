@@ -55,7 +55,7 @@ export default function BillingTab() {
           </div>
 
           <div className="text-left sm:text-right">
-            <span className="text-3xl font-extrabold text-gray-900">$99</span>
+            <span className="text-3xl font-bold text-[#5B1B95]">$99</span>
             <span className="text-xs text-gray-500 font-medium ml-1">/month</span>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function BillingTab() {
           <button
             type="button"
             onClick={handleChangePlan}
-            className="bg-[#E2E2E5] hover:bg-gray-300 text-gray-800 font-semibold px-5 py-2.5 rounded-xl text-xs sm:text-sm border border-gray-300/60 transition-colors cursor-pointer"
+            className="bg-[#FFFFFF] hover:bg-gray-50 text-gray-800 font-semibold px-5 py-2.5 rounded-xl text-xs sm:text-sm border border-gray-300/60 transition-colors cursor-pointer"
           >
             Change Plan
           </button>

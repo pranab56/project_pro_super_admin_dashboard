@@ -30,14 +30,14 @@ export default function PropertyManagerApprovalPage() {
       {/* Approvals Queue Cards List */}
       <div className="space-y-4">
         {queueList.length === 0 ? (
-          <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-10 text-center text-gray-500 font-medium">
+          <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-10 text-center text-gray-500 font-medium">
             All property manager approval requests have been processed! 🎉
           </div>
         ) : (
           queueList.map((item) => (
             <div
               key={item.id}
-              className="bg-[#EBEBEB] hover:bg-gray-200/80 border border-gray-300/50 rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 transition-colors duration-150"
+              className="bg-[#FFFFFF] hover:bg-gray-50 border border-[#E5E7EB] rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 transition-colors duration-150"
             >
               {/* Left Side: Number, Avatar & Company Info */}
               <div className="flex items-center gap-4 min-w-0">

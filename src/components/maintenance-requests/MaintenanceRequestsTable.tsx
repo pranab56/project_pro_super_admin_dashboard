@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Eye, Clock, Key, CheckCircle2, Ban } from "lucide-react";
+import { Eye, Clock, Wrench, CheckCircle2, XCircle } from "lucide-react";
 import { PriorityLevel, ServiceCategory, ServiceRequestItem } from "./types";
 
 interface MaintenanceRequestsTableProps {
@@ -16,28 +16,28 @@ export default function MaintenanceRequestsTable({
   const getPriorityBadgeStyle = (priority: PriorityLevel) => {
     switch (priority) {
       case "Critical":
-        return "bg-red-100 text-red-600";
+        return "bg-[#FEE2E2] text-[#DC2626] border border-[#FCA5A5]";
       case "High":
-        return "bg-amber-100 text-amber-700";
+        return "bg-[#FEF3C7] text-[#D97706] border border-[#FDE68A]";
       case "Medium":
-        return "bg-blue-100 text-blue-600";
+        return "bg-[#DBEAFE] text-[#2563EB] border border-[#BFDBFE]";
       case "Low":
-        return "bg-emerald-100 text-emerald-700";
+        return "bg-[#DCFCE7] text-[#16A34A] border border-[#BBF7D0]";
     }
   };
 
   const getTypeStyle = (type: ServiceCategory) => {
     switch (type) {
       case "Plumbing":
-        return { dot: "bg-[#3B82F6]", text: "text-[#3B82F6]" };
+        return { dot: "bg-[#2563EB]", text: "text-[#2563EB]" };
       case "Electrical":
-        return { dot: "bg-[#F97316]", text: "text-[#F97316]" };
+        return { dot: "bg-[#D97706]", text: "text-[#D97706]" };
       case "HVAC":
-        return { dot: "bg-[#10B981]", text: "text-[#10B981]" };
+        return { dot: "bg-[#16A34A]", text: "text-[#16A34A]" };
       case "Cleaning":
         return { dot: "bg-[#8E25E3]", text: "text-[#8E25E3]" };
       case "Painting":
-        return { dot: "bg-[#F43F5E]", text: "text-[#F43F5E]" };
+        return { dot: "bg-[#E53935]", text: "text-[#E53935]" };
     }
   };
 
@@ -46,7 +46,7 @@ export default function MaintenanceRequestsTable({
       case "In Progress":
         return (
           <span className="flex items-center gap-1.5 text-[#2563EB] font-semibold text-xs">
-            <Key className="w-3.5 h-3.5 text-[#2563EB]" />
+            <Wrench className="w-3.5 h-3.5 text-[#2563EB]" />
             In Progress
           </span>
         );
@@ -74,7 +74,7 @@ export default function MaintenanceRequestsTable({
       case "Cancelled":
         return (
           <span className="flex items-center gap-1.5 text-gray-500 font-semibold text-xs">
-            <Ban className="w-3.5 h-3.5 text-gray-400" />
+            <XCircle className="w-3.5 h-3.5 text-gray-400" />
             Cancelled
           </span>
         );
@@ -84,23 +84,23 @@ export default function MaintenanceRequestsTable({
   };
 
   return (
-    <div className="bg-white/80 border border-gray-200/90 rounded-2xl overflow-hidden shadow-2xs">
+    <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl overflow-hidden shadow-2xs">
       <div className="overflow-x-auto">
-        <table className="w-full text-left border-collapse">
+        <table className="w-full text-left border-collapse min-w-[950px]">
           <thead>
-            <tr className="border-b border-gray-200 text-gray-500 text-xs font-semibold">
-              <th className="py-3.5 px-5 font-semibold">Job ID</th>
-              <th className="py-3.5 px-5 font-semibold">Property & Issue</th>
-              <th className="py-3.5 px-5 font-semibold">Type</th>
-              <th className="py-3.5 px-5 font-semibold">Contractor</th>
-              <th className="py-3.5 px-5 font-semibold">Priority</th>
-              <th className="py-3.5 px-5 font-semibold">Status</th>
-              <th className="py-3.5 px-5 font-semibold">Base Pay</th>
-              <th className="py-3.5 px-5 font-semibold">Rate</th>
-              <th className="py-3.5 px-5 font-semibold text-right">Actions</th>
+            <tr className="bg-gray-50/80 border-b border-gray-200 text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+              <th className="py-4 px-5">Job ID</th>
+              <th className="py-4 px-5">Property & Issue</th>
+              <th className="py-4 px-5">Type</th>
+              <th className="py-4 px-5">Contractor</th>
+              <th className="py-4 px-5">Priority</th>
+              <th className="py-4 px-5">Status</th>
+              <th className="py-4 px-5">Base Pay</th>
+              <th className="py-4 px-5">Rate</th>
+              <th className="py-4 px-5 text-center">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200/80 text-xs font-medium text-gray-800">
+          <tbody className="divide-y divide-gray-100 text-xs font-medium text-gray-800">
             {requests.length === 0 ? (
               <tr>
                 <td colSpan={9} className="py-10 text-center text-gray-500 font-medium">
@@ -111,9 +111,9 @@ export default function MaintenanceRequestsTable({
               requests.map((item) => {
                 const typeStyle = getTypeStyle(item.type);
                 return (
-                  <tr key={item.id} className="hover:bg-gray-50/80 transition-colors">
+                  <tr key={item.id} className="hover:bg-purple-50/20 transition-colors">
                     {/* Job ID */}
-                    <td className="py-4 px-5">
+                    <td className="py-4 px-5 whitespace-nowrap">
                       <div>
                         <p className="font-bold text-[#8E25E3] text-xs sm:text-sm">{item.id}</p>
                         <p className="text-[11px] text-gray-400 font-normal mt-0.5">{item.date}</p>
@@ -130,7 +130,7 @@ export default function MaintenanceRequestsTable({
 
                     {/* Type */}
                     <td className="py-4 px-5 whitespace-nowrap">
-                      <span className="inline-flex items-center gap-1.5 font-semibold text-xs">
+                      <span className="inline-flex items-center gap-1.5 font-bold text-xs">
                         <span className={`w-2 h-2 rounded-full ${typeStyle.dot}`} />
                         <span className={typeStyle.text}>{item.type}</span>
                       </span>
@@ -140,7 +140,7 @@ export default function MaintenanceRequestsTable({
                     <td className="py-4 px-5 whitespace-nowrap">
                       <span
                         className={`font-semibold text-xs ${
-                          item.contractor === "Unassigned" ? "text-[#EF4444]" : "text-gray-900"
+                          item.contractor === "Unassigned" ? "text-[#DC2626]" : "text-gray-900"
                         }`}
                       >
                         {item.contractor}
@@ -174,10 +174,9 @@ export default function MaintenanceRequestsTable({
                     <td className="py-4 px-5 whitespace-nowrap">
                       {item.rateBonus ? (
                         <div className="leading-tight">
-                          <p className="font-bold text-[#8E25E3] text-xs">{item.rateBonus}</p>
-                          <p className="font-bold text-[#8E25E3] text-xs">
-                            = ${item.finalPayCalculated ? item.finalPayCalculated.toLocaleString() : item.basePay}
-                          </p>
+                          <span className="bg-[#F3E8FF] text-[#8E25E3] border border-[#E9D5FF] px-2 py-0.5 rounded-md text-[11px] font-bold inline-block">
+                            {item.rateBonus} = ${item.finalPayCalculated ? item.finalPayCalculated.toLocaleString() : item.basePay}
+                          </span>
                         </div>
                       ) : (
                         <span className="text-gray-400 text-xs">—</span>
@@ -185,13 +184,13 @@ export default function MaintenanceRequestsTable({
                     </td>
 
                     {/* Actions */}
-                    <td className="py-4 px-5 text-right whitespace-nowrap">
+                    <td className="py-4 px-5 text-center whitespace-nowrap">
                       <button
                         type="button"
                         onClick={() => handleOpenJobModal(item)}
-                        className="px-3 py-1.5 border border-purple-300 hover:border-[#8E25E3] text-[#8E25E3] bg-purple-50/50 hover:bg-purple-100/60 font-semibold text-xs rounded-lg transition-all cursor-pointer inline-flex items-center gap-1.5 shadow-2xs"
+                        className="px-3.5 py-2 border border-[#E9D5FF] hover:border-[#8E25E3] text-[#8E25E3] bg-[#F3E8FF] hover:bg-[#E9D5FF] font-semibold text-xs rounded-lg transition-all cursor-pointer inline-flex items-center justify-center gap-1.5 shadow-2xs"
                       >
-                        <Eye className="w-3.5 h-3.5 stroke-[2.5]" />
+                        <Eye className="w-3.5 h-3.5" />
                         <span>Open Job</span>
                       </button>
                     </td>

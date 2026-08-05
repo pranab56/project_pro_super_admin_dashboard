@@ -29,11 +29,11 @@ export default function PropertyManagersTable({
   };
 
   return (
-    <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl overflow-hidden shadow-xs">
+    <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl overflow-hidden shadow-xs">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-gray-300/80 text-gray-500 text-xs font-semibold">
+            <tr className="border-b border-[#E5E7EB] text-gray-500 text-xs font-semibold">
               <th className="py-4 px-5 font-medium">ID</th>
               <th className="py-4 px-5 font-medium">Property Name / Location</th>
               <th className="py-4 px-5 font-medium">Point of Contact</th>
@@ -44,7 +44,7 @@ export default function PropertyManagersTable({
               <th className="py-4 px-5 font-medium text-center">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-300/60 text-xs font-medium text-gray-800">
+          <tbody className="divide-y divide-[#E5E7EB] text-xs font-medium text-gray-800">
             {partners.length === 0 ? (
               <tr>
                 <td colSpan={8} className="py-10 text-center text-gray-500 font-medium">
@@ -53,7 +53,7 @@ export default function PropertyManagersTable({
               </tr>
             ) : (
               partners.map((item) => (
-                <tr key={item.id} className="hover:bg-gray-200/50 transition-colors">
+                <tr key={item.id} className="hover:bg-gray-50 transition-colors">
                   {/* ID */}
                   <td className="py-4 px-5 font-bold text-[#8E25E3]">
                     {item.id}
@@ -62,7 +62,7 @@ export default function PropertyManagersTable({
                   {/* Property Name / Location */}
                   <td className="py-4 px-5">
                     <div>
-                      <p className="font-bold text-gray-900 text-sm leading-snug">{item.propertyName}</p>
+                      <p className="font-medium text-gray-900 text-sm leading-snug">{item.propertyName}</p>
                       <p className="text-[11px] text-gray-500 font-normal mt-0.5 flex items-center gap-1">
                         <MapPin className="w-3 h-3 text-gray-400" />
                         <span>{item.location}</span>
@@ -73,7 +73,7 @@ export default function PropertyManagersTable({
                   {/* Point of Contact */}
                   <td className="py-4 px-5">
                     <div>
-                      <p className="font-bold text-gray-900">{item.contactName}</p>
+                      <p className="font-medium text-gray-900">{item.contactName}</p>
                       <p className="text-[11px] text-gray-500 font-normal mt-0.5 flex items-center gap-1">
                         <Mail className="w-3 h-3 text-gray-400" />
                         <span>{item.contactEmail}</span>
@@ -137,7 +137,7 @@ export default function PropertyManagersTable({
                       <button
                         type="button"
                         onClick={() => setViewPartner(item)}
-                        className="p-2 bg-[#EBEBEB] hover:bg-[#EBEBEB] border border-gray-300/80 rounded-md text-gray-600 hover:text-[#8E25E3] transition-colors cursor-pointer"
+                        className="p-2 bg-[#FFFFFF] hover:bg-gray-50 border border-[#E5E7EB] rounded-md text-gray-600 hover:text-[#8E25E3] transition-colors cursor-pointer"
                         title="View Partner Details"
                       >
                         <Eye className="w-3.5 h-3.5" />
@@ -147,7 +147,7 @@ export default function PropertyManagersTable({
                       <button
                         type="button"
                         onClick={() => setEditPartner(item)}
-                        className="p-2 bg-[#EBEBEB] hover:bg-[#EBEBEB] border border-gray-300/80 rounded-md text-gray-600 hover:text-[#8E25E3] transition-colors cursor-pointer"
+                        className="p-2 bg-[#FFFFFF] hover:bg-gray-50 border border-[#E5E7EB] rounded-md text-gray-600 hover:text-[#8E25E3] transition-colors cursor-pointer"
                         title="Edit Partner"
                       >
                         <Edit className="w-3.5 h-3.5" />
@@ -157,7 +157,7 @@ export default function PropertyManagersTable({
                       <button
                         type="button"
                         onClick={() => setDeletePartner(item)}
-                        className="p-2 bg-[#EBEBEB] hover:bg-[#EBEBEB] border border-gray-300/80 rounded-md text-gray-600 hover:text-[#8E25E3] transition-colors cursor-pointer"
+                        className="p-2 bg-[#FFFFFF] hover:bg-gray-50 border border-[#E5E7EB] rounded-md text-gray-600 hover:text-[#8E25E3] transition-colors cursor-pointer"
                         title="Delete Partner"
                       >
                         <Trash2 className="w-3.5 h-3.5" />

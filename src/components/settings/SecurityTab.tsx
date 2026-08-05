@@ -39,7 +39,7 @@ export default function SecurityTab() {
   };
 
   return (
-    <div className="bg-[#EBEBEB] border border-gray-300/60 rounded-xl p-6 sm:p-8 max-w-2xl">
+    <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl p-6 sm:p-8 max-w-2xl">
 
 
       <form onSubmit={handleUpdatePassword} className="space-y-4">

@@ -2,6 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import { X, MapPin, Calendar, Key, Sliders } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { ServiceRequestItem, JobStatus } from "./types";
 
 interface JobRateModalProps {
@@ -60,7 +67,6 @@ export default function JobRateModal({
 
   if (!job) return null;
 
-
   const quickReasons = [
     "Certified Electrician",
     "Licensed Plumber",
@@ -70,7 +76,6 @@ export default function JobRateModal({
     "Specialized Equipment",
   ];
 
-  // Calculate summary payouts
   const numRateVal = parseFloat(rateValue) || 0;
   let additionalPay = 0;
   let additionLabel = "";
@@ -103,7 +108,7 @@ export default function JobRateModal({
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50 p-3 sm:p-5">
-      <div className="bg-[#F8F8FA] rounded-3xl max-w-4xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[92vh] border border-gray-200/80 animate-in fade-in zoom-in-95 duration-150">
+      <div className="bg-white rounded-3xl max-w-4xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[92vh] border border-gray-200/80 animate-in fade-in zoom-in-95 duration-150">
         
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 bg-white border-b border-gray-200/80">
@@ -162,8 +167,8 @@ export default function JobRateModal({
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <p className="text-[10px] font-bold text-gray-400 tracking-wider uppercase">SERVICE TYPE</p>
-                <div className="flex items-center gap-1.5 mt-1 font-semibold text-xs text-[#3B82F6]">
-                  <span className="w-2 h-2 rounded-full bg-[#3B82F6]" />
+                <div className="flex items-center gap-1.5 mt-1 font-semibold text-xs text-[#2563EB]">
+                  <span className="w-2 h-2 rounded-full bg-[#2563EB]" />
                   <span>{job.type}</span>
                 </div>
               </div>
@@ -186,7 +191,7 @@ export default function JobRateModal({
             {/* Notes */}
             <div>
               <p className="text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">NOTES</p>
-              <div className="bg-[#EDEDF2]/70 border border-gray-200/80 rounded-2xl p-3.5 text-xs text-gray-700 font-normal leading-relaxed">
+              <div className="bg-gray-100/70 border border-gray-200/80 rounded-2xl p-3.5 text-xs text-gray-700 font-normal leading-relaxed">
                 {job.notes || "Tenant reports water pooling under the sink. Has been ongoing for 3 days."}
               </div>
             </div>
@@ -197,17 +202,21 @@ export default function JobRateModal({
                 <label className="block text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">
                   STATUS
                 </label>
-                <select
+                <Select
                   value={currentStatus}
-                  onChange={(e) => setCurrentStatus(e.target.value as JobStatus)}
-                  className="w-full bg-[#EDEDF2] border border-gray-200 rounded-xl px-3 py-2.5 text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer"
+                  onValueChange={(val) => setCurrentStatus(val as JobStatus)}
                 >
-                  <option value="In Progress">In Progress</option>
-                  <option value="Pending">Pending</option>
-                  <option value="Assigned">Assigned</option>
-                  <option value="Completed">Completed</option>
-                  <option value="Cancelled">Cancelled</option>
-                </select>
+                  <SelectTrigger className="w-full bg-gray-100/70 border border-gray-200 rounded-lg h-9 px-3 text-xs font-semibold text-gray-800 focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer shadow-none">
+                    <SelectValue placeholder="Select status" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg text-xs font-medium text-gray-800">
+                    <SelectItem value="In Progress">In Progress</SelectItem>
+                    <SelectItem value="Pending">Pending</SelectItem>
+                    <SelectItem value="Assigned">Assigned</SelectItem>
+                    <SelectItem value="Completed">Completed</SelectItem>
+                    <SelectItem value="Cancelled">Cancelled</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <div>
@@ -218,7 +227,7 @@ export default function JobRateModal({
                   type="text"
                   value={currentEta}
                   onChange={(e) => setCurrentEta(e.target.value)}
-                  className="w-full bg-[#EDEDF2] border border-gray-200 rounded-xl px-3 py-2.5 text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40"
+                  className="w-full bg-gray-100/70 border border-gray-200 rounded-lg px-3 py-2 text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 h-9"
                   placeholder="Jun 27, 2026"
                 />
               </div>
@@ -234,19 +243,23 @@ export default function JobRateModal({
               <label className="block text-[10px] font-bold text-gray-400 tracking-wider uppercase mb-1">
                 ASSIGN CONTRACTOR
               </label>
-              <select
+              <Select
                 value={assignedContractor}
-                onChange={(e) => setAssignedContractor(e.target.value)}
-                className="w-full bg-[#EDEDF2] border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer"
+                onValueChange={setAssignedContractor}
               >
-                <option value="Unassigned">Unassigned</option>
-                <option value="Mike Chen">Mike Chen</option>
-                <option value="Nina Patel">Nina Patel</option>
-                <option value="Lisa Park">Lisa Park</option>
-                <option value="Tom Wilson">Tom Wilson</option>
-                <option value="Alex Kumar">Alex Kumar</option>
-                <option value="Carlos Rivera">Carlos Rivera</option>
-              </select>
+                <SelectTrigger className="w-full bg-gray-100/70 border border-gray-200 rounded-lg h-9 px-3.5 text-xs font-semibold text-gray-800 focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer shadow-none">
+                  <SelectValue placeholder="Select contractor" />
+                </SelectTrigger>
+                <SelectContent className="bg-white border border-gray-200 rounded-xl shadow-lg text-xs font-medium text-gray-800">
+                  <SelectItem value="Unassigned">Unassigned</SelectItem>
+                  <SelectItem value="Mike Chen">Mike Chen</SelectItem>
+                  <SelectItem value="Nina Patel">Nina Patel</SelectItem>
+                  <SelectItem value="Lisa Park">Lisa Park</SelectItem>
+                  <SelectItem value="Tom Wilson">Tom Wilson</SelectItem>
+                  <SelectItem value="Alex Kumar">Alex Kumar</SelectItem>
+                  <SelectItem value="Carlos Rivera">Carlos Rivera</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
             {/* Base Payment */}
@@ -260,7 +273,7 @@ export default function JobRateModal({
                   type="number"
                   value={basePayInput}
                   onChange={(e) => setBasePayInput(Number(e.target.value))}
-                  className="w-full bg-[#EDEDF2] border border-gray-200 rounded-xl pl-7 pr-3 py-2.5 text-xs font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40"
+                  className="w-full bg-gray-100/70 border border-gray-200 rounded-lg pl-7 pr-3 py-2.5 text-xs font-bold text-gray-900 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40"
                 />
               </div>
             </div>
@@ -270,7 +283,7 @@ export default function JobRateModal({
               className={`rounded-2xl p-4 transition-all space-y-3.5 ${
                 isSpecializedRateActive
                   ? "border-2 border-[#8E25E3] bg-purple-50/40"
-                  : "border border-gray-200 bg-[#EDEDF2]/50"
+                  : "border border-gray-200 bg-gray-100/50"
               }`}
             >
               {/* Header inside container */}
@@ -310,7 +323,7 @@ export default function JobRateModal({
                       <button
                         type="button"
                         onClick={() => setPaymentType("Percentage")}
-                        className={`py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                        className={`py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                           paymentType === "Percentage"
                             ? "bg-[#8E25E3] text-white shadow-2xs"
                             : "bg-gray-200/80 text-gray-700 hover:bg-gray-300/80"
@@ -321,7 +334,7 @@ export default function JobRateModal({
                       <button
                         type="button"
                         onClick={() => setPaymentType("Flat Amount")}
-                        className={`py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                        className={`py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                           paymentType === "Flat Amount"
                             ? "bg-[#8E25E3] text-white shadow-2xs"
                             : "bg-gray-200/80 text-gray-700 hover:bg-gray-300/80"
@@ -342,7 +355,7 @@ export default function JobRateModal({
                       placeholder="e.g. 15"
                       value={rateValue}
                       onChange={(e) => setRateValue(e.target.value)}
-                      className="w-full bg-[#EDEDF2] border border-gray-200 rounded-xl px-3 py-2 text-xs font-semibold text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40"
+                      className="w-full bg-gray-100/70 border border-gray-200 rounded-lg px-3 py-2 text-xs font-semibold text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40"
                     />
                   </div>
 
@@ -379,7 +392,7 @@ export default function JobRateModal({
                       placeholder="Or type a custom reason..."
                       value={customReasonInput}
                       onChange={(e) => setCustomReasonInput(e.target.value)}
-                      className="w-full bg-[#EDEDF2] border border-gray-200 rounded-xl px-3 py-2 text-xs font-normal text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 mt-2"
+                      className="w-full bg-gray-100/70 border border-gray-200 rounded-lg px-3 py-2 text-xs font-normal text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 mt-2"
                     />
                   </div>
                 </div>
@@ -387,7 +400,7 @@ export default function JobRateModal({
             </div>
 
             {/* Payout Summary Container */}
-            <div className="bg-[#EDEDF2]/70 border border-gray-200/80 rounded-2xl p-4 space-y-2 text-xs">
+            <div className="bg-gray-100/70 border border-gray-200/80 rounded-2xl p-4 space-y-2 text-xs">
               <h5 className="text-[10px] font-bold text-gray-400 tracking-wider uppercase">PAYOUT SUMMARY</h5>
               
               <div className="flex items-center justify-between text-gray-700 font-medium">
@@ -415,13 +428,13 @@ export default function JobRateModal({
             <button
               type="button"
               onClick={onClose}
-              className="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-xs rounded-xl border border-gray-200 transition-all cursor-pointer"
+              className="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold text-xs rounded-lg border border-gray-200 transition-all cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="px-5 py-2.5 bg-[#8E25E3] hover:bg-[#7b1bd1] text-white font-semibold text-xs rounded-xl shadow-xs transition-all cursor-pointer"
+              className="px-5 py-2.5 bg-[#8E25E3] hover:bg-[#7b1bd1] text-white font-semibold text-xs rounded-lg shadow-xs transition-all cursor-pointer"
             >
               Save & Assign
             </button>

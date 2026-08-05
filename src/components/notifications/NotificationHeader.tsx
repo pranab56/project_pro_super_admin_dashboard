@@ -39,7 +39,7 @@ export default function NotificationHeader({
           <button
             type="button"
             onClick={onMarkAllAsRead}
-            className="bg-[#EBEBEB] hover:bg-gray-300/80 text-gray-800 font-medium px-4 py-2 rounded-md border border-gray-300/60 text-xs transition-colors cursor-pointer flex items-center gap-1.5"
+            className="bg-[#FFFFFF] hover:bg-gray-50 text-gray-800 font-medium px-4 py-2 rounded-md border border-[#E5E7EB] text-xs transition-colors cursor-pointer flex items-center gap-1.5"
           >
             <CheckCheck className="w-4 h-4 text-[#8E25E3]" />
             <span>Mark all as read</span>

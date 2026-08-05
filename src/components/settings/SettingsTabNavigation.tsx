@@ -14,7 +14,7 @@ export default function SettingsTabNavigation({
   setActiveTab,
 }: SettingsTabNavigationProps) {
   return (
-    <div className="lg:col-span-3 bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-3 shadow-xs space-y-1.5">
+    <div className="lg:col-span-3 bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-3 shadow-xs space-y-1.5">
       {/* General Tab */}
       <button
         type="button"

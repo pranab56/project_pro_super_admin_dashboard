@@ -35,11 +35,11 @@ export default function UserTable({
   };
 
   return (
-    <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl overflow-hidden shadow-xs">
+    <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl overflow-hidden shadow-xs">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-gray-300/80 text-gray-500 text-xs font-medium">
+            <tr className="border-b border-[#E5E7EB] text-gray-500 text-xs font-medium">
               <th className="py-4 px-5 font-medium">Name / Email</th>
               <th className="py-4 px-5 font-medium">User name</th>
               <th className="py-4 px-5 font-medium">Role</th>
@@ -49,7 +49,7 @@ export default function UserTable({
               <th className="py-4 px-5 font-medium text-center">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-300/60 text-xs font-medium text-gray-800">
+          <tbody className="divide-y divide-[#E5E7EB] text-xs font-medium text-gray-800">
             {users.length === 0 ? (
               <tr>
                 <td colSpan={7} className="py-10 text-center text-gray-500 font-medium">
@@ -128,7 +128,7 @@ export default function UserTable({
                       onClick={() =>
                         setActiveMenuId(activeMenuId === user.id ? null : user.id)
                       }
-                      className="px-2.5 py-1.5 bg-[#EBEBEB] border border-gray-300/80 rounded-md text-gray-600 hover:text-gray-900 transition-all cursor-pointer inline-flex items-center justify-center"
+                      className="px-2.5 py-1.5 bg-[#FFFFFF] hover:bg-gray-50 border border-[#E5E7EB] rounded-md text-gray-600 hover:text-gray-900 transition-all cursor-pointer inline-flex items-center justify-center"
                       title="Actions"
                     >
                       <MoreHorizontal className="w-4 h-4" />

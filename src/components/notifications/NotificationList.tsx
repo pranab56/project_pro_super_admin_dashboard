@@ -18,7 +18,7 @@ export default function NotificationList({
 }: NotificationListProps) {
   if (notifications.length === 0) {
     return (
-      <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-12 text-center flex flex-col items-center justify-center">
+      <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-12 text-center flex flex-col items-center justify-center">
         <div className="w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center text-gray-400 mb-3">
           <BellOff className="w-7 h-7" />
         </div>

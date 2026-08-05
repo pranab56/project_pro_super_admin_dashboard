@@ -20,7 +20,7 @@ export default function UserDetailsModal({ user, onClose }: UserDetailsModalProp
           <button
             type="button"
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 font-bold cursor-pointer"
+            className="text-gray-400 hover:text-gray-700 hover:bg-gray-200 p-1.5 rounded-full transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>

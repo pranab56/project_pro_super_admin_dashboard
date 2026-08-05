@@ -21,7 +21,7 @@ const revenueExpensesData = [
 
 export default function RevenueChart() {
     return (
-        <div className="lg:col-span-8 bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-6 shadow-xs flex flex-col justify-between">
+        <div className="lg:col-span-8 bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-6 shadow-xs flex flex-col justify-between">
             <div className="flex items-center justify-between mb-4">
                 <div>
                     <h2 className="text-base font-bold text-gray-900">Revenue & Expenses</h2>

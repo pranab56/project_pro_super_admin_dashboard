@@ -22,7 +22,7 @@ const servicesData = [
 
 export default function ServicesChart() {
     return (
-        <div className="lg:col-span-4 bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-6 shadow-xs flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-6 shadow-xs flex flex-col justify-between">
             <div>
                 <h2 className="text-base font-bold text-gray-900">Request by Services</h2>
                 <p className="text-xs text-gray-500 font-medium mt-0.5">This month</p>

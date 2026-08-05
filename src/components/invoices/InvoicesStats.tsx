@@ -11,7 +11,7 @@ export default function InvoicesStats({ onOpenCardDetails }: InvoicesStatsProps)
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {/* Card 1: Total Subscriptions */}
-      <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-gray-200/90 transition-all duration-200">
+      <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-gray-50 transition-all duration-200">
         <div>
           <div className="w-10 h-10 rounded-xl bg-amber-100/90 text-amber-600 flex items-center justify-center">
             <Clock className="w-5 h-5" />
@@ -31,7 +31,7 @@ export default function InvoicesStats({ onOpenCardDetails }: InvoicesStatsProps)
       </div>
 
       {/* Card 2: Total Payout */}
-      <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-gray-200/90 transition-all duration-200">
+      <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-gray-50 transition-all duration-200">
         <div>
           <div className="w-10 h-10 rounded-xl bg-red-100/90 text-red-600 flex items-center justify-center">
             <ArrowUpRight className="w-5 h-5" />
@@ -51,7 +51,7 @@ export default function InvoicesStats({ onOpenCardDetails }: InvoicesStatsProps)
       </div>
 
       {/* Card 3: Total commission Income */}
-      <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-gray-200/90 transition-all duration-200">
+      <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-gray-50 transition-all duration-200">
         <div>
           <div className="w-10 h-10 rounded-xl bg-emerald-100/90 text-emerald-600 flex items-center justify-center">
             <TrendingUp className="w-5 h-5" />
@@ -71,7 +71,7 @@ export default function InvoicesStats({ onOpenCardDetails }: InvoicesStatsProps)
       </div>
 
       {/* Card 4: Total Revenue (Jun) */}
-      <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-gray-200/90 transition-all duration-200">
+      <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-gray-50 transition-all duration-200">
         <div>
           <div className="w-10 h-10 rounded-xl bg-purple-100/90 text-[#8E25E3] flex items-center justify-center">
             <DollarSign className="w-5 h-5" />

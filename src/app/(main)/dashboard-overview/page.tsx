@@ -272,7 +272,7 @@ export default function DashboardOverviewPage() {
           return (
             <div
               key={card.id}
-              className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-[#EBEBEB] transition-all duration-200"
+              className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:bg-gray-50 transition-all duration-200"
             >
               <div>
                 {/* Icon Badge */}

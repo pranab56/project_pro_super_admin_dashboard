@@ -38,7 +38,7 @@ export default function NotificationFilters({
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search notifications..."
-          className="w-full pl-10 pr-4 py-3 bg-[#EBEBEB] border border-gray-300/60 rounded-md text-xs font-medium text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-[#8E25E3]/40 focus:outline-none transition-colors"
+          className="w-full pl-10 pr-4 py-3 bg-[#FFFFFF] border border-[#E5E7EB] rounded-md text-xs font-medium text-gray-900 placeholder:text-gray-500 focus:ring-2 focus:ring-[#8E25E3]/40 focus:outline-none transition-colors"
         />
       </div>
 
@@ -54,7 +54,7 @@ export default function NotificationFilters({
               className={`px-3 py-2 rounded-md text-xs font-medium transition-all whitespace-nowrap cursor-pointer flex items-center gap-1.5 ${
                 isSelected
                   ? "bg-[#E1D4F4] text-[#8E25E3] border border-purple-300 shadow-2xs"
-                  : "bg-[#EBEBEB] text-gray-700 hover:bg-gray-300/80 border border-gray-300/50"
+                  : "bg-[#FFFFFF] text-gray-700 hover:bg-gray-50 border border-[#E5E7EB]"
               }`}
             >
               <span>{tab.label}</span>

@@ -55,7 +55,7 @@ export default function CreateServiceRequestModal({
           <button
             type="button"
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 font-bold cursor-pointer"
+            className="text-gray-400 hover:text-gray-700 hover:bg-gray-200 p-1.5 rounded-full transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -87,7 +87,7 @@ export default function CreateServiceRequestModal({
           <div>
             <label className="block text-gray-700 font-bold mb-1">Service Category</label>
             <Select value={newType} onValueChange={(val) => setNewType(val as ServiceCategory)}>
-              <SelectTrigger className="w-full bg-[#EBEBEB] border-gray-300/60 rounded-md h-11 text-xs font-medium text-gray-700 cursor-pointer">
+              <SelectTrigger className="w-full bg-[#FFFFFF] border-[#E5E7EB] rounded-md h-11 text-xs font-medium text-gray-700 cursor-pointer">
                 <SelectValue placeholder="Select Category" />
               </SelectTrigger>
               <SelectContent className="bg-white border border-gray-200 text-xs font-medium text-gray-800 shadow-md">
@@ -103,7 +103,7 @@ export default function CreateServiceRequestModal({
           <div>
             <label className="block text-gray-700 font-bold mb-1">Priority Level</label>
             <Select value={newPriority} onValueChange={(val) => setNewPriority(val as PriorityLevel)}>
-              <SelectTrigger className="w-full bg-[#EBEBEB] border-gray-300/60 rounded-md h-11 text-xs font-medium text-gray-700 cursor-pointer">
+              <SelectTrigger className="w-full bg-[#FFFFFF] border-[#E5E7EB] rounded-md h-11 text-xs font-medium text-gray-700 cursor-pointer">
                 <SelectValue placeholder="Select Priority" />
               </SelectTrigger>
               <SelectContent className="bg-white border border-gray-200 text-xs font-medium text-gray-800 shadow-md">

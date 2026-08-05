@@ -30,7 +30,7 @@ export default function GeneralSettingsTab({
   onSave,
 }: GeneralSettingsTabProps) {
   return (
-    <div className="lg:col-span-9 bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-6 sm:p-8 shadow-xs">
+    <div className="lg:col-span-9 bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-6 sm:p-8 shadow-xs">
       <form onSubmit={onSave} className="space-y-6">
         <div>
           <h2 className="text-lg font-bold text-gray-900">General Settings</h2>

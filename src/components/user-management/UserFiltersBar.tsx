@@ -40,13 +40,13 @@ export default function UserFiltersBar({
             placeholder="Search by name or email..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3.5 bg-[#EBEBEB] border border-gray-300/60 rounded-md text-xs font-medium text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 transition-colors"
+            className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#E5E7EB] rounded-md text-xs font-medium text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 transition-colors"
           />
         </div>
 
         {/* Role Filter Dropdown */}
         <Select value={selectedRoleFilter} onValueChange={setSelectedRoleFilter}>
-          <SelectTrigger className="w-[180px] bg-[#EBEBEB] border-gray-300/60 py-5.5 rounded-md text-xs font-medium text-gray-700 h-12 focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer">
+          <SelectTrigger className="w-[180px] bg-[#FFFFFF] border-[#E5E7EB] py-5.5 rounded-md text-xs font-medium text-gray-700 h-12 focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer">
             <SelectValue placeholder="All Roles" />
           </SelectTrigger>
           <SelectContent className="bg-white border border-gray-200 text-xs font-medium text-gray-800 shadow-md">
@@ -61,7 +61,7 @@ export default function UserFiltersBar({
 
         {/* Status Filter Dropdown */}
         <Select value={selectedStatusFilter} onValueChange={setSelectedStatusFilter}>
-          <SelectTrigger className="w-[150px] bg-[#EBEBEB] border-gray-300/60 rounded-md py-5.5 text-xs font-medium text-gray-700 h-[46px] focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer">
+          <SelectTrigger className="w-[150px] bg-[#FFFFFF] border-[#E5E7EB] rounded-md py-5.5 text-xs font-medium text-gray-700 h-[46px] focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer">
             <SelectValue placeholder="All Statuses" />
           </SelectTrigger>
           <SelectContent className="bg-white border border-gray-200 text-xs font-medium text-gray-800 shadow-md">

@@ -44,7 +44,7 @@ const initialContractors = [
 
 export default function RecentContractor() {
     return (
-        <div className="lg:col-span-6 bg-[#EBEBEB] border border-gray-300/50 rounded-2xl p-6 shadow-xs">
+        <div className="lg:col-span-6 bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-6 shadow-xs">
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-base font-bold text-gray-900">Recent Contractor Registrations</h2>
                 <Link

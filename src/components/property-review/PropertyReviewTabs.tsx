@@ -33,7 +33,7 @@ export default function PropertyReviewTabs({
             className={`px-4 py-2 rounded-md text-xs font-medium transition-all cursor-pointer flex items-center gap-2 ${
               isActive
                 ? "bg-[#E1D4F4] text-[#8E25E3] border border-purple-300 shadow-2xs"
-                : "bg-[#EBEBEB] text-gray-700 hover:bg-gray-300/80 border border-gray-300/50"
+                : "bg-[#FFFFFF] text-gray-700 hover:bg-gray-50 border border-[#E5E7EB]"
             }`}
           >
             <span>{tab}</span>

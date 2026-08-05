@@ -52,7 +52,7 @@ export default function InvoiceDetailModal({
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-6 right-6 p-1.5 rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
+          className="absolute top-6 right-6 p-1.5 rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-200 transition-colors cursor-pointer"
         >
           <X className="w-5 h-5" />
         </button>

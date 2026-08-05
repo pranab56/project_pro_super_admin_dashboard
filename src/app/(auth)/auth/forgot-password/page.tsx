@@ -51,7 +51,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col lg:flex-row bg-[#EBEBEB]">
+    <div className="min-h-screen w-full flex flex-col lg:flex-row bg-[#F8F9FA]">
       {/* Left Section - Form */}
       <div className="w-full lg:w-[50%] xl:w-[50%] flex flex-col justify-between p-6 sm:p-12 lg:p-16 xl:p-20 min-h-screen">
         {/* Logo */}

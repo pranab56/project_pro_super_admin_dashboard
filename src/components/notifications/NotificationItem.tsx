@@ -65,8 +65,8 @@ export default function NotificationItem({
       onClick={() => !item.read && onMarkAsRead(item.id)}
       className={`p-4 sm:p-5 rounded-2xl border transition-all cursor-pointer flex flex-col sm:flex-row items-start justify-between gap-4 ${
         !item.read
-          ? "bg-[#EBEBEB] border-purple-300 shadow-2xs"
-          : "bg-[#EBEBEB]/80 hover:bg-[#EBEBEB] border-gray-300/50 opacity-90"
+          ? "bg-[#FFFFFF] border-purple-300 shadow-2xs"
+          : "bg-gray-50/80 hover:bg-[#FFFFFF] border-[#E5E7EB] opacity-90"
       }`}
     >
       {/* Icon + Main Info */}

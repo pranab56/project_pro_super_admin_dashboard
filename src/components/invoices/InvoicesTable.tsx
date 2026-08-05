@@ -21,11 +21,11 @@ export default function InvoicesTable({
   setSelectedTxn,
 }: InvoicesTableProps) {
   return (
-    <div className="bg-[#EBEBEB] border border-gray-300/50 rounded-2xl overflow-hidden shadow-xs">
+    <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl overflow-hidden shadow-xs">
       <div className="overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="border-b border-gray-300/80 text-gray-500 text-xs font-semibold">
+            <tr className="border-b border-[#E5E7EB] text-gray-500 text-xs font-semibold">
               <th className="py-4 px-5 font-medium">Transaction ID</th>
               <th className="py-4 px-5 font-medium">Date</th>
               <th className="py-4 px-5 font-medium">Description</th>
@@ -35,7 +35,7 @@ export default function InvoicesTable({
               <th className="py-4 px-5 font-medium">Status</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-300/60 text-xs font-medium text-gray-800">
+          <tbody className="divide-y divide-[#E5E7EB] text-xs font-medium text-gray-800">
             {transactions.length === 0 ? (
               <tr>
                 <td colSpan={7} className="py-10 text-center text-gray-500 font-medium">
@@ -47,7 +47,7 @@ export default function InvoicesTable({
                 <tr
                   key={item.id}
                   onClick={() => setSelectedTxn(item)}
-                  className="hover:bg-gray-200/60 transition-colors cursor-pointer"
+                  className="hover:bg-gray-50 transition-colors cursor-pointer"
                 >
                   {/* Transaction ID */}
                   <td className="py-4 px-5 font-bold text-[#8E25E3]">
@@ -60,12 +60,12 @@ export default function InvoicesTable({
                   </td>
 
                   {/* Description */}
-                  <td className="py-4 px-5 font-bold text-gray-900">
+                  <td className="py-4 px-5 font-normal text-gray-900">
                     {item.description}
                   </td>
 
                   {/* Property partner */}
-                  <td className="py-4 px-5 text-gray-600 font-medium">
+                  <td className="py-4 px-5 text-gray-600 font-normal">
                     {item.partner}
                   </td>
 
