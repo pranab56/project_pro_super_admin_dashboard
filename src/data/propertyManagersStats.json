@@ -1,26 +1,28 @@
 [
   {
+    "id": "total-partners",
+    "title": "Total Partners",
+    "value": "24",
+    "textColor": "text-[#2563EB]"
+  },
+  {
     "id": "total-properties",
     "title": "Total Properties",
+    "subTitle": "Total Units: 1,247",
     "value": "108",
     "textColor": "text-blue-600"
   },
   {
-    "id": "total-subscriptions",
-    "title": "Total Subscriptions",
-    "value": "6",
+    "id": "active-subscriptions",
+    "title": "Active Subscriptions",
+    "subTitle": "MRR: $12,800/mo.",
+    "value": "18",
     "textColor": "text-emerald-600"
   },
   {
-    "id": "pending-approvals",
-    "title": "Pending Property Approvals",
-    "value": "1",
-    "textColor": "text-amber-500"
-  },
-  {
-    "id": "total-earnings",
-    "title": "Total Earnings",
-    "value": "$ 5413",
+    "id": "partner-gsv-earnings",
+    "title": "Partner GSV/ Earnings",
+    "value": "$420,000",
     "textColor": "text-[#8E25E3]"
   }
 ]

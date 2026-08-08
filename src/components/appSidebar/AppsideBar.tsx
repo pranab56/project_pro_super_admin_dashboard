@@ -17,6 +17,7 @@ import {
   LayoutGrid,
   LogOut,
   Settings,
+  Sparkles,
   Users,
   Wrench,
 } from "lucide-react";
@@ -50,7 +51,7 @@ type SidebarItem = {
 
 const sidebars: SidebarItem[] = [
   { name: "Dashboard", path: "/", icon: LayoutGrid },
-  { name: "Dashboard Overview", path: "/dashboard-overview", icon: Users },
+  { name: "Overview Metrics", path: "/overview-metrics", icon: Users },
   { name: "User Management", path: "/user-management", icon: Users },
   { name: "Property Manager Approval", path: "/property-manager-approval", icon: ClipboardCheck },
   { name: "Property Partners", path: "/property-managers", icon: Building2 },
@@ -58,6 +59,7 @@ const sidebars: SidebarItem[] = [
   { name: "Provider Applicants", path: "/provider-applicants", icon: HardHat },
   { name: "Maintenance Requests", path: "/maintenance-requests", icon: Wrench },
   { name: "Invoices & Payments", path: "/invoices", icon: CreditCard },
+  { name: "Subscription", path: "/subscription", icon: Sparkles },
   { name: "Settings", path: "/settings", icon: Settings },
 ];
 

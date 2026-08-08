@@ -40,10 +40,15 @@ export default function ProviderApplicantsPage() {
 
   // Filter List
   const filteredApplicants = applicants.filter((item) => {
+    const q = searchQuery.toLowerCase();
     const matchesSearch =
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.trade.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.email.toLowerCase().includes(searchQuery.toLowerCase());
+      item.name.toLowerCase().includes(q) ||
+      item.trade.toLowerCase().includes(q) ||
+      item.email.toLowerCase().includes(q) ||
+      item.id.toLowerCase().includes(q) ||
+      item.serviceRequestId.toLowerCase().includes(q) ||
+      item.workOrderId.toLowerCase().includes(q) ||
+      item.jobId.toLowerCase().includes(q);
 
     let matchesTab = true;
     if (activeTab === "Pending") matchesTab = item.status === "Pending";

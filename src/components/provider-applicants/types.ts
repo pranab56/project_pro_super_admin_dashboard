@@ -3,6 +3,9 @@ export type FilterTab = "All" | "Pending" | "Approved" | "Action Required" | "Re
 
 export type ProviderApplicantItem = {
   id: string;
+  serviceRequestId: string;
+  workOrderId: string;
+  jobId: string;
   avatarChar: string;
   avatarBg: string;
   avatarColor: string;
@@ -22,6 +25,9 @@ export type ProviderApplicantItem = {
 export const initialApplicantsList: ProviderApplicantItem[] = [
   {
     id: "PROV-101",
+    serviceRequestId: "SR-1293",
+    workOrderId: "WO-8840",
+    jobId: "JOB-402",
     avatarChar: "JO",
     avatarBg: "bg-blue-100",
     avatarColor: "text-blue-600",
@@ -43,6 +49,9 @@ export const initialApplicantsList: ProviderApplicantItem[] = [
   },
   {
     id: "PROV-102",
+    serviceRequestId: "SR-1292",
+    workOrderId: "WO-8841",
+    jobId: "JOB-403",
     avatarChar: "NP",
     avatarBg: "bg-amber-100",
     avatarColor: "text-amber-700",
@@ -64,6 +73,9 @@ export const initialApplicantsList: ProviderApplicantItem[] = [
   },
   {
     id: "PROV-103",
+    serviceRequestId: "SR-1291",
+    workOrderId: "WO-8842",
+    jobId: "JOB-404",
     avatarChar: "CR",
     avatarBg: "bg-emerald-100",
     avatarColor: "text-emerald-700",
@@ -84,6 +96,9 @@ export const initialApplicantsList: ProviderApplicantItem[] = [
   },
   {
     id: "PROV-104",
+    serviceRequestId: "SR-1289",
+    workOrderId: "WO-8843",
+    jobId: "JOB-405",
     avatarChar: "SK",
     avatarBg: "bg-purple-100",
     avatarColor: "text-[#8E25E3]",
@@ -106,6 +121,9 @@ export const initialApplicantsList: ProviderApplicantItem[] = [
   },
   {
     id: "PROV-105",
+    serviceRequestId: "SR-1285",
+    workOrderId: "WO-8844",
+    jobId: "JOB-406",
     avatarChar: "MJ",
     avatarBg: "bg-red-100",
     avatarColor: "text-red-700",

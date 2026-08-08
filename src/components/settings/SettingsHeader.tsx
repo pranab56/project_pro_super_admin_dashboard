@@ -15,7 +15,7 @@ export default function SettingsHeader({ onSaveChanges }: SettingsHeaderProps) {
           Settings
         </h1>
         <p className="text-sm text-gray-500 font-normal mt-1">
-          Manage platform configuration and preferences
+          Manage your personal account details, update contact information, and secure your login credentials.
         </p>
       </div>
 

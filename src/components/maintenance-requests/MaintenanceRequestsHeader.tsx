@@ -22,7 +22,7 @@ export default function MaintenanceRequestsHeader({ onOpenNewRequest }: Maintena
       <button
         type="button"
         onClick={onOpenNewRequest}
-        className="px-4 py-2.5 bg-[#8E25E3] hover:bg-[#7b1bd1] text-white font-semibold text-xs rounded-xl shadow-xs transition-all cursor-pointer flex items-center justify-center gap-1.5 shrink-0"
+        className="px-4 py-3 bg-[#8E25E3] hover:bg-[#7b1bd1] text-white font-semibold text-xs rounded-lg shadow-xs transition-all cursor-pointer flex items-center justify-center gap-1.5 shrink-0"
       >
         <Plus className="w-4 h-4 stroke-[2.5]" />
         <span>New Request</span>

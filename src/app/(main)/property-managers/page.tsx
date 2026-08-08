@@ -51,13 +51,30 @@ export default function PropertyManagersPage() {
     setEditPartner(null);
   };
 
+  const [activeCardId, setActiveCardId] = useState<string | null>(null);
+
+  const handleSelectCard = (id: string) => {
+    setActiveCardId(id);
+    if (id === "total-partners") {
+      setStatusFilter("All Statuses");
+      setPlanFilter("All Plans");
+    } else if (id === "active-subscriptions") {
+      setStatusFilter("Active");
+    } else if (id === "total-properties") {
+      setStatusFilter("All Statuses");
+    }
+  };
+
   return (
     <div className="space-y-6">
       {/* Header */}
       <PropertyManagersHeader />
 
-      {/* Stats Cards */}
-      <PropertyManagersStats />
+      {/* Stats Cards / Tabs */}
+      <PropertyManagersStats
+        activeCardId={activeCardId}
+        onSelectCard={handleSelectCard}
+      />
 
       {/* Search and Filters Bar */}
       <PropertyManagersFiltersBar

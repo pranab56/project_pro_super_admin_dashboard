@@ -19,6 +19,7 @@ export type PropertyPartner = {
 export type StatItem = {
   id: string;
   title: string;
+  subTitle?: string;
   value: string;
   textColor: string;
 };

@@ -120,14 +120,19 @@ export default function AddModal({ isOpen, onClose, onAdd, isLoading = false }: 
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-center justify-center p-4 animate-in fade-in duration-300">
-      <div className="bg-[#FFFFFF] rounded-xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-[#E5E7EB] max-h-[92vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200 ease-out">
+      <div className="bg-white rounded-2xl p-6 sm:p-8 max-w-xl w-full shadow-2xl border border-gray-200 max-h-[92vh] overflow-y-auto animate-in fade-in zoom-in-95 duration-200 ease-out">
         {/* Modal Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-gray-900">Create a New Plan</h2>
+        <div className="flex items-center justify-between mb-6 border-b border-gray-200 pb-4">
+          <div>
+            <h2 className="text-xl font-bold text-gray-900">Create a New Plan</h2>
+            <p className="text-xs text-gray-500 font-normal mt-0.5">
+              Set up a new subscription tier with custom benefits and pricing
+            </p>
+          </div>
           <button
             type="button"
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-700 hover:bg-gray-200 cursor-pointer p-1.5 rounded-full transition-colors"
+            className="text-gray-400 hover:text-gray-700 hover:bg-gray-100 cursor-pointer p-1.5 rounded-full transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -140,10 +145,10 @@ export default function AddModal({ isOpen, onClose, onAdd, isLoading = false }: 
               Plan Title *
             </label>
             <Select value={form.title} onValueChange={(val) => handleTitleChange(val as PackageBody['title'])}>
-              <SelectTrigger className="w-full h-[46px] px-4 py-6 bg-[#E2E2E5] border border-transparent rounded-xl text-sm text-gray-900 focus:outline-none transition-all cursor-pointer shadow-none capitalize">
+              <SelectTrigger className="w-full h-[44px] px-4 py-5 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-900 focus:ring-2 focus:ring-[#8E25E3]/30 focus:border-[#8E25E3] transition-all cursor-pointer shadow-2xs capitalize">
                 <SelectValue placeholder="Select Plan Title" />
               </SelectTrigger>
-              <SelectContent className="bg-white rounded-xl border border-gray-200 shadow-lg z-[60]">
+              <SelectContent className="bg-white rounded-lg border border-gray-200 shadow-lg z-[60]">
                 <SelectItem value="free">Free</SelectItem>
                 <SelectItem value="basic">Basic</SelectItem>
                 <SelectItem value="premium">Premium</SelectItem>
@@ -161,10 +166,10 @@ export default function AddModal({ isOpen, onClose, onAdd, isLoading = false }: 
               disabled={isFree}
               onValueChange={(val) => setForm((p) => ({ ...p, type: val as PackageBody['type'] }))}
             >
-              <SelectTrigger className="w-full h-[46px] px-4 py-6 bg-[#E2E2E5] border border-transparent rounded-xl text-sm text-gray-900 focus:outline-none transition-all cursor-pointer shadow-none capitalize disabled:opacity-60">
+              <SelectTrigger className="w-full h-[44px] px-4 py-5 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-900 focus:ring-2 focus:ring-[#8E25E3]/30 focus:border-[#8E25E3] transition-all cursor-pointer shadow-2xs capitalize disabled:opacity-60 disabled:bg-gray-50">
                 <SelectValue placeholder="Select Type" />
               </SelectTrigger>
-              <SelectContent className="bg-white rounded-xl border border-gray-200 shadow-lg z-[60]">
+              <SelectContent className="bg-white rounded-lg border border-gray-200 shadow-lg z-[60]">
                 <SelectItem value="month">Month</SelectItem>
                 <SelectItem value="year">Year</SelectItem>
                 {isFree && <SelectItem value="free">Free</SelectItem>}
@@ -188,8 +193,8 @@ export default function AddModal({ isOpen, onClose, onAdd, isLoading = false }: 
                 if (e.target.value) setErrors((prev) => ({ ...prev, price: '' }));
               }}
               disabled={isFree}
-              className={`w-full px-4 py-3 bg-[#E2E2E5] border rounded-xl text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none transition-all disabled:opacity-60 ${
-                errors.price ? 'border-red-500 bg-red-50/20' : 'border-transparent focus:bg-white'
+              className={`w-full px-4 py-2.5 bg-white border rounded-lg text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-[#8E25E3]/30 focus:border-[#8E25E3] focus:outline-none transition-all shadow-2xs disabled:opacity-60 disabled:bg-gray-50 ${
+                errors.price ? 'border-red-500 bg-red-50/20' : 'border-gray-300'
               }`}
             />
             {errors.price && (
@@ -212,8 +217,8 @@ export default function AddModal({ isOpen, onClose, onAdd, isLoading = false }: 
                 setForm((p) => ({ ...p, productId: e.target.value }));
                 if (e.target.value.trim()) setErrors((prev) => ({ ...prev, productId: '' }));
               }}
-              className={`w-full px-4 py-3 bg-[#E2E2E5] border rounded-xl text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none transition-all ${
-                errors.productId ? 'border-red-500 bg-red-50/20' : 'border-transparent focus:bg-white'
+              className={`w-full px-4 py-2.5 bg-white border rounded-lg text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-[#8E25E3]/30 focus:border-[#8E25E3] focus:outline-none transition-all shadow-2xs ${
+                errors.productId ? 'border-red-500 bg-red-50/20' : 'border-gray-300'
               }`}
             />
             {errors.productId && (
@@ -232,10 +237,10 @@ export default function AddModal({ isOpen, onClose, onAdd, isLoading = false }: 
               value={form.platform}
               onValueChange={(val) => setForm((p) => ({ ...p, platform: val as PackageBody['platform'] }))}
             >
-              <SelectTrigger className="w-full h-[46px] px-4 py-6 bg-[#E2E2E5] border border-transparent rounded-xl text-sm text-gray-900 focus:outline-none transition-all cursor-pointer shadow-none capitalize">
+              <SelectTrigger className="w-full h-[44px] px-4 py-3 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-900 focus:ring-2 focus:ring-[#8E25E3]/30 focus:border-[#8E25E3] transition-all cursor-pointer shadow-2xs capitalize">
                 <SelectValue placeholder="Select Platform" />
               </SelectTrigger>
-              <SelectContent className="bg-white rounded-xl border border-gray-200 shadow-lg z-[60]">
+              <SelectContent className="bg-white rounded-lg border border-gray-200 shadow-lg z-[60]">
                 <SelectItem value="apple">Apple</SelectItem>
                 <SelectItem value="google">Google</SelectItem>
               </SelectContent>
@@ -256,8 +261,8 @@ export default function AddModal({ isOpen, onClose, onAdd, isLoading = false }: 
                 setForm((p) => ({ ...p, participantCount: e.target.value }));
                 if (e.target.value) setErrors((prev) => ({ ...prev, participantCount: '' }));
               }}
-              className={`w-full px-4 py-3 bg-[#E2E2E5] border rounded-xl text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none transition-all ${
-                errors.participantCount ? 'border-red-500 bg-red-50/20' : 'border-transparent focus:bg-white'
+              className={`w-full px-4 py-2.5 bg-white border rounded-lg text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-[#8E25E3]/30 focus:border-[#8E25E3] focus:outline-none transition-all shadow-2xs ${
+                errors.participantCount ? 'border-red-500 bg-red-50/20' : 'border-gray-300'
               }`}
             />
             {errors.participantCount && (
@@ -279,26 +284,26 @@ export default function AddModal({ isOpen, onClose, onAdd, isLoading = false }: 
                 value={form.currentBenefit}
                 onChange={(e) => setForm((p) => ({ ...p, currentBenefit: e.target.value }))}
                 onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addBenefit())}
-                className="flex-1 px-4 py-3 bg-[#E2E2E5] border border-transparent rounded-xl text-sm text-gray-900 focus:bg-white focus:outline-none transition-all"
+                className="flex-1 px-4 py-2.5 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-[#8E25E3]/30 focus:border-[#8E25E3] focus:outline-none transition-all shadow-2xs"
               />
               <button
                 type="button"
                 onClick={addBenefit}
-                className="px-4 py-3 bg-[#6B1294] hover:bg-[#580e7d] text-white font-semibold rounded-xl cursor-pointer transition-colors flex items-center justify-center"
+                className="px-4 py-2.5 bg-[#8E25E3] hover:bg-[#781dc6] text-white font-semibold rounded-lg cursor-pointer transition-colors flex items-center justify-center shadow-xs"
               >
                 <Plus className="w-4 h-4" />
               </button>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 max-h-36 overflow-y-auto pr-1 custom-scrollbar">
               {form.benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center justify-between px-4 py-2 bg-gray-100/80 rounded-xl">
-                  <span className="text-sm font-medium text-gray-800">{benefit}</span>
+                <div key={index} className="flex items-center justify-between px-3.5 py-2 bg-purple-50/60 border border-purple-100 rounded-lg">
+                  <span className="text-xs font-semibold text-gray-800">{benefit}</span>
                   <button
                     type="button"
                     onClick={() => removeBenefit(index)}
                     className="p-1 text-red-500 hover:text-red-700 hover:bg-red-50 rounded-lg cursor-pointer transition-colors"
                   >
-                    <X className="w-4 h-4" />
+                    <X className="w-3.5 h-3.5" />
                   </button>
                 </div>
               ))}
@@ -306,18 +311,18 @@ export default function AddModal({ isOpen, onClose, onAdd, isLoading = false }: 
           </div>
 
           {/* Actions */}
-          <div className="flex gap-3 pt-2">
+          <div className="flex gap-3 pt-3 border-t border-gray-200">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-3.5 px-4 bg-[#E2E2E5] hover:bg-gray-300 border border-gray-300/60 rounded-xl text-gray-800 font-semibold text-sm sm:text-base transition-colors cursor-pointer"
+              className="flex-1 py-2.5 px-4 bg-white hover:bg-gray-100 border border-gray-300 rounded-lg text-gray-700 font-semibold text-sm transition-colors cursor-pointer"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isLoading}
-              className="flex-1 py-3.5 px-4 bg-[#6B1294] hover:bg-[#580e7d] text-white font-semibold rounded-xl shadow-sm text-sm sm:text-base transition-colors cursor-pointer disabled:opacity-60"
+              className="flex-1 py-2.5 px-4 bg-[#8E25E3] hover:bg-[#781dc6] text-white font-semibold rounded-lg shadow-xs text-sm transition-colors cursor-pointer disabled:opacity-60"
             >
               {isLoading ? 'Adding...' : 'Add Plan'}
             </button>

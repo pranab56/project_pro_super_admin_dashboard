@@ -15,14 +15,14 @@ export default function PropertyManagerApprovalPage() {
         <div>
           <div className="flex items-center gap-3">
             <h1 className="text-2xl sm:text-3xl font-medium text-gray-900 tracking-tight">
-              Property Manager Approvals Queue
+              Property Manager Approval Request
             </h1>
             <span className="px-3 py-1 rounded-full bg-amber-100/90 text-amber-700 font-medium text-xs">
               {queueList.length} pending
             </span>
           </div>
           <p className="text-sm text-gray-500 font-normal mt-1">
-            Review submitted information and approve or reject each application.
+            Review, verify credentials, and manage platform access.
           </p>
         </div>
       </div>

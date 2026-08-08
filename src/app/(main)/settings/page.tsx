@@ -11,16 +11,17 @@ import SecuritySettingsTab from "@/components/settings/SecuritySettingsTab";
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState<SettingsTab>("General");
 
-  // General Settings Form State
-  const [platformName, setPlatformName] = useState("ProjexPro");
-  const [supportEmail, setSupportEmail] = useState("support@projexpro.com");
-  const [emailAddress, setEmailAddress] = useState("admin@projexpro.com");
-  const [phoneNumber, setPhoneNumber] = useState("+1 (555) 234-5678");
-  const [houseAddress, setHouseAddress] = useState("1200 Market Street, Suite 400, Austin, TX");
+  // General Settings Account Form State
+  const [username, setUsername] = useState("ProjeXPro_User123");
+  const [fullName, setFullName] = useState("Alex Morgan");
+  const [emailAddress, setEmailAddress] = useState("user@company.com");
+  const [systemRole, setSystemRole] = useState("Super Admin");
+  const [isAccountActive, setIsAccountActive] = useState(true);
 
   const handleSaveChanges = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    toast.success("Settings saved successfully!");
+    // API integration point for updating user account details & status
+    toast.success("Account settings saved successfully!");
   };
 
   return (
@@ -36,16 +37,16 @@ export default function SettingsPage() {
         {/* Right Side Content Box */}
         {activeTab === "General" ? (
           <GeneralSettingsTab
-            platformName={platformName}
-            setPlatformName={setPlatformName}
-            supportEmail={supportEmail}
-            setSupportEmail={setSupportEmail}
+            username={username}
+            setUsername={setUsername}
+            fullName={fullName}
+            setFullName={setFullName}
             emailAddress={emailAddress}
             setEmailAddress={setEmailAddress}
-            phoneNumber={phoneNumber}
-            setPhoneNumber={setPhoneNumber}
-            houseAddress={houseAddress}
-            setHouseAddress={setHouseAddress}
+            systemRole={systemRole}
+            setSystemRole={setSystemRole}
+            isAccountActive={isAccountActive}
+            setIsAccountActive={setIsAccountActive}
             onSave={handleSaveChanges}
           />
         ) : (

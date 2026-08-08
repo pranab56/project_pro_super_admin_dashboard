@@ -91,8 +91,31 @@ export default function ProviderApplicantsList({
                     )}
                   </div>
 
+                  {/* ID Badges in List View */}
+                  <div className="flex items-center gap-2 flex-wrap mt-1">
+                    <span className="px-2 py-0.5 bg-blue-50 border border-blue-200 text-blue-700 font-mono text-[11px] font-bold rounded-md flex items-center gap-1">
+                      <span className="text-[10px] text-blue-500 font-medium">SR #</span>
+                      <span>{item.serviceRequestId}</span>
+                    </span>
+
+                    <span className="px-2 py-0.5 bg-amber-50 border border-amber-200 text-amber-800 font-mono text-[11px] font-bold rounded-md flex items-center gap-1">
+                      <span className="text-[10px] text-amber-600 font-medium">WO #</span>
+                      <span>{item.workOrderId}</span>
+                    </span>
+
+                    <span className="px-2 py-0.5 bg-emerald-50 border border-emerald-200 text-emerald-800 font-mono text-[11px] font-bold rounded-md flex items-center gap-1">
+                      <span className="text-[10px] text-emerald-600 font-medium">JOB #</span>
+                      <span>{item.jobId}</span>
+                    </span>
+
+                    <span className="px-2 py-0.5 bg-purple-50 border border-purple-200 text-[#8E25E3] font-mono text-[11px] font-bold rounded-md flex items-center gap-1">
+                      <span className="text-[10px] text-purple-400 font-medium">PROV #</span>
+                      <span>{item.id}</span>
+                    </span>
+                  </div>
+
                   {/* Subtitle with icons */}
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs sm:text-sm text-gray-500 font-normal mt-1.5">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs sm:text-sm text-gray-500 font-normal mt-2">
                     <span className="flex items-center gap-1.5">
                       <Wrench className="w-3.5 h-3.5 text-gray-400" />
                       <span>
@@ -178,7 +201,51 @@ export default function ProviderApplicantsList({
               }`}
             >
               <div className="overflow-hidden bg-gray-50/50">
-                <div className="p-5 sm:p-6">
+                <div className="p-5 sm:p-6 space-y-6">
+                  {/* Detailed Identifier Badges Card */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-2xs">
+                    <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2.5">
+                      Associated Identifiers & Work Metadata
+                    </h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                      <div className="bg-blue-50/80 border border-blue-200 rounded-lg p-2.5">
+                        <span className="text-[10px] font-bold text-blue-600 uppercase block mb-0.5">
+                          Service Request ID #
+                        </span>
+                        <span className="text-xs font-mono font-bold text-blue-900">
+                          {item.serviceRequestId}
+                        </span>
+                      </div>
+
+                      <div className="bg-amber-50/80 border border-amber-200 rounded-lg p-2.5">
+                        <span className="text-[10px] font-bold text-amber-700 uppercase block mb-0.5">
+                          Work Order ID #
+                        </span>
+                        <span className="text-xs font-mono font-bold text-amber-950">
+                          {item.workOrderId}
+                        </span>
+                      </div>
+
+                      <div className="bg-emerald-50/80 border border-emerald-200 rounded-lg p-2.5">
+                        <span className="text-[10px] font-bold text-emerald-700 uppercase block mb-0.5">
+                          Job ID #
+                        </span>
+                        <span className="text-xs font-mono font-bold text-emerald-950">
+                          {item.jobId}
+                        </span>
+                      </div>
+
+                      <div className="bg-purple-50/80 border border-purple-200 rounded-lg p-2.5">
+                        <span className="text-[10px] font-bold text-purple-700 uppercase block mb-0.5">
+                          Provider ID #
+                        </span>
+                        <span className="text-xs font-mono font-bold text-purple-950">
+                          {item.id}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Left: About & License */}
                     <div className="space-y-4">

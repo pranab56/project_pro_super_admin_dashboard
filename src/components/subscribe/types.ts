@@ -17,4 +17,15 @@ export interface Plan {
   updatedAt?: string;
 }
 
+export interface PackageBody {
+  title: 'free' | 'basic' | 'premium';
+  type: 'month' | 'year' | 'free';
+  planType: 'free' | 'paid';
+  price: number;
+  productId: string;
+  platform: 'apple' | 'google';
+  benefits: string[];
+  participantCount: number;
+}
+
 export const initialPlans: Plan[] = [];

@@ -28,23 +28,58 @@ export default function PropertyManagersFiltersBar({
   setStatusFilter,
   filteredCount,
 }: PropertyManagersFiltersBarProps) {
+  const quickTabs = [
+    { label: "All Partners", status: "All Statuses", plan: "All Plans" },
+    { label: "Active Subscriptions", status: "Active", plan: "All Plans" },
+    { label: "Pending Approvals", status: "Pending", plan: "All Plans" },
+    { label: "Suspended", status: "Suspended", plan: "All Plans" },
+  ];
+
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white p-3.5 rounded-2xl border border border-gray-200/80 shadow-2xs">
+      {/* Left: Quick Navigation Tabs */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 custom-scrollbar">
+        {quickTabs.map((tab) => {
+          const isActive =
+            (tab.status === "All Statuses" && statusFilter === "All Statuses") ||
+            (tab.status !== "All Statuses" && statusFilter === tab.status);
+
+          return (
+            <button
+              key={tab.label}
+              type="button"
+              onClick={() => {
+                setStatusFilter(tab.status);
+                if (tab.plan) setPlanFilter(tab.plan);
+              }}
+              className={`px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap ${
+                isActive
+                  ? "bg-[#8E25E3] text-white shadow-xs"
+                  : "bg-gray-100/80 text-gray-600 hover:bg-gray-200/80 hover:text-gray-900"
+              }`}
+            >
+              {tab.label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Right: Search Input, Plan & Status Dropdowns + Account Count */}
+      <div className="flex flex-wrap items-center gap-3 shrink-0">
         {/* Search */}
-        <div className="relative w-full sm:w-64">
+        <div className="relative w-full sm:w-56">
           <input
             type="text"
             placeholder="Search accounts..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3.5 bg-[#FFFFFF] border border-[#E5E7EB] rounded-md text-xs font-medium text-gray-900 placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 transition-colors"
+            className="w-full px-3.5 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs font-medium text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#8E25E3]/40 transition-colors"
           />
         </div>
 
-        {/* Plan Filter Dropdown (shadcn UI Select) */}
+        {/* Plan Filter Dropdown */}
         <Select value={planFilter} onValueChange={setPlanFilter}>
-          <SelectTrigger className="w-[170px] bg-[#FFFFFF] border-[#E5E7EB] py-5.5 rounded-md text-xs font-medium text-gray-700 h-12 focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer">
+          <SelectTrigger className="w-[140px] bg-gray-50 border-gray-200 rounded-xl text-xs font-medium text-gray-700 h-[38px] focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer">
             <SelectValue placeholder="All Plans" />
           </SelectTrigger>
           <SelectContent className="bg-white border border-gray-200 text-xs font-medium text-gray-800 shadow-md">
@@ -55,9 +90,9 @@ export default function PropertyManagersFiltersBar({
           </SelectContent>
         </Select>
 
-        {/* Status Filter Dropdown (shadcn UI Select) */}
+        {/* Status Filter Dropdown */}
         <Select value={statusFilter} onValueChange={setStatusFilter}>
-          <SelectTrigger className="w-[150px] bg-[#FFFFFF] border-[#E5E7EB] rounded-md py-5.5 text-xs font-medium text-gray-700 h-[46px] focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer">
+          <SelectTrigger className="w-[130px] bg-gray-50 border-gray-200 rounded-xl text-xs font-medium text-gray-700 h-[38px] focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer">
             <SelectValue placeholder="All Statuses" />
           </SelectTrigger>
           <SelectContent className="bg-white border border-gray-200 text-xs font-medium text-gray-800 shadow-md">
@@ -67,11 +102,11 @@ export default function PropertyManagersFiltersBar({
             <SelectItem value="Suspended">Suspended</SelectItem>
           </SelectContent>
         </Select>
-      </div>
 
-      {/* Account Count Badge */}
-      <div className="text-xs font-medium text-gray-500 shrink-0">
-        {filteredCount} accounts
+        {/* Account Count Badge */}
+        <div className="text-xs font-semibold text-gray-500 shrink-0 ml-1">
+          {filteredCount} accounts
+        </div>
       </div>
     </div>
   );

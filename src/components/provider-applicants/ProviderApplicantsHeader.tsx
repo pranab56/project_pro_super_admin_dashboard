@@ -12,15 +12,15 @@ export default function ProviderApplicantsHeader({ pendingCount }: ProviderAppli
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
         <h1 className="text-2xl sm:text-3xl font-medium text-gray-900 tracking-tight">
-          Provider Applicants
+          Service Pro Network
         </h1>
         <p className="text-xs sm:text-sm text-gray-500 font-normal mt-1">
-          Application Review & Approval
+          Manage active Providers profiles, monitor performance ratings, and update license and insurance.
         </p>
       </div>
 
       <div>
-        <div className="px-4 py-2 rounded-full bg-[#FEF3C7] border border-[#FDE68A] text-[#D97706] font-semibold text-xs sm:text-sm flex items-center gap-2">
+        <div className="px-4 py-2 rounded-lg bg-[#FEF3C7] border border-[#FDE68A] text-[#D97706] font-semibold text-xs sm:text-sm flex items-center gap-2">
           <Clock className="w-4 h-4 text-[#D97706]" />
           <span>{pendingCount} awaiting review</span>
         </div>

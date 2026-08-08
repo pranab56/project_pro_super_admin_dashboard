@@ -3,38 +3,19 @@
 import React, { useState } from "react";
 import {
   AlertTriangle,
+  ArchiveX,
   BadgeCheck,
+  Briefcase,
   Building2,
   CheckCircle2,
   Clock,
   CreditCard,
   DollarSign,
   ExternalLink,
-  FileSpreadsheet,
-  ShieldAlert,
   Tag,
-  Users,
+  Wrench,
 } from "lucide-react";
 import toast from "react-hot-toast";
-
-// Custom Contractor Worker Icon matching Figma sample image
-const ContractorWorkerIcon = ({ className = "w-6 h-6" }: { className?: string }) => (
-  <svg
-    viewBox="0 0 64 64"
-    fill="currentColor"
-    className={className}
-  >
-    {/* Hard Hat Helmet & Brim */}
-    <path d="M32 6 C21 6 12 14 10 25 L6 25 C4.3 25 3 26.3 3 28 L3 31 C3 32.7 4.3 34 6 34 L58 34 C59.7 34 61 32.7 61 31 L61 28 C61 26.3 59.7 25 58 25 L54 25 C52 14 43 6 32 6 Z M29 10 L35 10 L35 25 L29 25 Z" />
-    {/* Head */}
-    <circle cx="32" cy="38" r="6" />
-    {/* Body / Shoulders */}
-    <path d="M14 58 C14 47 21 44 32 44 C43 44 50 47 50 58 L50 62 L14 62 Z" />
-    {/* Crossed Wrench & Hammer in Foreground */}
-    <path d="M42 42 L58 56 C59.5 57.5 59.5 60 58 61.5 C56.5 63 54 63 52.5 61.5 L36.5 47.5 Z" />
-    <path d="M58 42 L42 56 C40.5 57.5 40.5 60 42 61.5 C43.5 63 46 63 47.5 61.5 L63.5 47.5 Z" />
-  </svg>
-);
 
 export type PipelineSubTab = "Pending" | "Active" | "Completed" | "Cancelled";
 export type PropertySubTab = "Properties List" | "Total Units";
@@ -79,9 +60,9 @@ export type OverviewCard = {
 const overviewCards: OverviewCard[] = [
   {
     id: "service-pipeline",
-    icon: ContractorWorkerIcon,
-    iconBg: "bg-purple-100/90",
-    iconColor: "text-purple-600",
+    icon: Wrench,
+    iconBg: "bg-purple-100/80",
+    iconColor: "text-[#8E25E3]",
     value: "5",
     label: "Service Pipeline",
     linkColor: "text-[#8E25E3]",
@@ -89,16 +70,16 @@ const overviewCards: OverviewCard[] = [
   {
     id: "pending-jobs",
     icon: Clock,
-    iconBg: "bg-amber-100/90",
+    iconBg: "bg-amber-100/80",
     iconColor: "text-amber-600",
     value: "3",
     label: "Pending Jobs",
-    linkColor: "text-amber-600",
+    linkColor: "text-[#D97706]",
   },
   {
     id: "completed-jobs",
     icon: CheckCircle2,
-    iconBg: "bg-emerald-100/90",
+    iconBg: "bg-emerald-100/80",
     iconColor: "text-emerald-600",
     value: "523",
     label: "Completed Jobs",
@@ -106,35 +87,26 @@ const overviewCards: OverviewCard[] = [
   },
   {
     id: "cancelled-jobs",
-    icon: ContractorWorkerIcon,
-    iconBg: "bg-red-100/90",
-    iconColor: "text-red-600",
+    icon: ArchiveX,
+    iconBg: "bg-red-100/80",
+    iconColor: "text-red-500",
     value: "20",
     label: "Cancelled Jobs",
-    linkColor: "text-red-600",
+    linkColor: "text-[#EF4444]",
   },
   {
     id: "properties",
     icon: Building2,
-    iconBg: "bg-blue-100/90",
-    iconColor: "text-blue-600",
+    iconBg: "bg-blue-100/80",
+    iconColor: "text-blue-500",
     value: "84",
     label: "Properties",
-    linkColor: "text-blue-600",
-  },
-  {
-    id: "total-units",
-    icon: Users,
-    iconBg: "bg-purple-100/90",
-    iconColor: "text-purple-600",
-    value: "1,247",
-    label: "Total Units",
-    linkColor: "text-[#8E25E3]",
+    linkColor: "text-[#0284C7]",
   },
   {
     id: "property-partners",
     icon: CreditCard,
-    iconBg: "bg-amber-100/90",
+    iconBg: "bg-amber-100/80",
     iconColor: "text-amber-600",
     value: "523",
     label: "Property Partners",
@@ -143,25 +115,16 @@ const overviewCards: OverviewCard[] = [
   {
     id: "total-revenue-generated",
     icon: DollarSign,
-    iconBg: "bg-emerald-100/90",
+    iconBg: "bg-emerald-100/80",
     iconColor: "text-emerald-600",
     value: "$84.5K",
-    label: "Total Revenue Generated",
+    label: "Finance",
     linkColor: "text-[#8E25E3]",
-  },
-  {
-    id: "service-providers",
-    icon: ContractorWorkerIcon,
-    iconBg: "bg-blue-100/90",
-    iconColor: "text-blue-600",
-    value: "84",
-    label: "Service Providers",
-    linkColor: "text-blue-600",
   },
   {
     id: "service-categories",
     icon: Tag,
-    iconBg: "bg-emerald-100/90",
+    iconBg: "bg-emerald-100/80",
     iconColor: "text-emerald-600",
     value: "523",
     label: "Service Categories",
@@ -170,29 +133,20 @@ const overviewCards: OverviewCard[] = [
   {
     id: "pending-payouts",
     icon: CreditCard,
-    iconBg: "bg-amber-100/90",
+    iconBg: "bg-amber-100/80",
     iconColor: "text-amber-600",
-    value: "18",
+    value: "523",
     label: "Pending Payout Request",
     linkColor: "text-[#8E25E3]",
   },
   {
-    id: "total-revenue-paid-out",
-    icon: DollarSign,
-    iconBg: "bg-amber-100/90",
-    iconColor: "text-amber-600",
-    value: "$284.5K",
-    label: "Total Revenue Paid Out",
-    linkColor: "text-[#8E25E3]",
-  },
-  {
     id: "dispute-center",
-    icon: ShieldAlert,
-    iconBg: "bg-blue-100/90",
-    iconColor: "text-blue-600",
-    value: "12",
+    icon: Briefcase,
+    iconBg: "bg-blue-100/80",
+    iconColor: "text-blue-500",
+    value: "84",
     label: "Dispute Center",
-    linkColor: "text-blue-600",
+    linkColor: "text-[#0284C7]",
   },
 ];
 
@@ -308,38 +262,37 @@ export default function DashboardOverviewPage() {
           <button
             type="button"
             onClick={handleGenerateReport}
-            className="px-5 py-2.5 bg-[#8E25E3] hover:bg-[#7b1bd1] text-white font-semibold text-sm rounded-lg transition-all shadow-xs cursor-pointer flex items-center gap-2"
+            className="px-5 py-3 bg-[#6B21A8] hover:bg-[#581c87] text-white font-medium text-sm rounded-lg transition-all shadow-xs cursor-pointer"
           >
-            <FileSpreadsheet className="w-4 h-4" />
-            <span>Generate Report</span>
+            Generate Report
           </button>
         </div>
       </div>
 
-      {/* Overview Cards Grid (All 13 Cards) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      {/* Overview Cards Grid (10 Cards from Screenshot) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {overviewCards.map((card) => {
           const IconComp = card.icon;
           return (
             <div
               key={card.id}
-              className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-2xl p-5 shadow-xs flex flex-col justify-between hover:border-purple-300 hover:shadow-md transition-all duration-200"
+              className="bg-white/90 border border-gray-200/80 rounded-2xl p-5 shadow-2xs flex flex-col justify-between hover:border-purple-300 hover:shadow-xs transition-all duration-200"
             >
               <div>
                 {/* Icon Badge */}
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center ${card.iconBg} ${card.iconColor} shadow-2xs`}
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center ${card.iconBg} ${card.iconColor}`}
                 >
-                  <IconComp className="w-6 h-6 stroke-[2.2]" />
+                  <IconComp className="w-5 h-5 stroke-[2]" />
                 </div>
 
                 {/* Big Number Value */}
-                <h2 className="text-3xl font-bold text-gray-900 tracking-tight mt-4 mb-1">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight mt-3 mb-0.5">
                   {card.value}
                 </h2>
 
                 {/* Metric Label */}
-                <p className="text-sm font-normal  text-gray-500 mb-3">
+                <p className="text-xs sm:text-sm font-medium text-gray-500 mb-3">
                   {card.label}
                 </p>
               </div>
@@ -363,7 +316,7 @@ export default function DashboardOverviewPage() {
       {selectedCardId && activeCard && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-3xl p-6 sm:p-7 max-w-2xl w-full shadow-2xl space-y-5 animate-in fade-in zoom-in-95 duration-150 max-h-[90vh] overflow-y-auto custom-scrollbar">
-            
+
             {/* Modal Header */}
             <div className="flex items-center justify-between border-b border-gray-200 pb-4">
               <div className="flex items-center gap-3">
@@ -400,11 +353,10 @@ export default function DashboardOverviewPage() {
                       key={tab}
                       type="button"
                       onClick={() => setPipelineSubTab(tab)}
-                      className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-                        pipelineSubTab === tab
-                          ? "bg-[#8E25E3] text-white shadow-2xs"
-                          : "text-gray-600 hover:text-gray-900 hover:bg-gray-200/60"
-                      }`}
+                      className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${pipelineSubTab === tab
+                        ? "bg-[#8E25E3] text-white shadow-2xs"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-200/60"
+                        }`}
                     >
                       {tab} ({pipelineData[tab].length})
                     </button>
@@ -427,15 +379,14 @@ export default function DashboardOverviewPage() {
                       </div>
 
                       <span
-                        className={`px-3 py-1 rounded-full text-[11px] font-semibold ${
-                          pipelineSubTab === "Active"
-                            ? "bg-blue-100 text-blue-700 border border-blue-200"
-                            : pipelineSubTab === "Pending"
+                        className={`px-3 py-1 rounded-full text-[11px] font-semibold ${pipelineSubTab === "Active"
+                          ? "bg-blue-100 text-blue-700 border border-blue-200"
+                          : pipelineSubTab === "Pending"
                             ? "bg-amber-100 text-amber-800 border border-amber-200"
                             : pipelineSubTab === "Completed"
-                            ? "bg-emerald-100 text-emerald-800 border border-emerald-200"
-                            : "bg-red-100 text-red-700 border border-red-200"
-                        }`}
+                              ? "bg-emerald-100 text-emerald-800 border border-emerald-200"
+                              : "bg-red-100 text-red-700 border border-red-200"
+                          }`}
                       >
                         {item.status}
                       </span>
@@ -455,11 +406,10 @@ export default function DashboardOverviewPage() {
                       key={tab}
                       type="button"
                       onClick={() => setPropertySubTab(tab)}
-                      className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-                        propertySubTab === tab
-                          ? "bg-blue-600 text-white shadow-2xs"
-                          : "text-gray-600 hover:text-gray-900 hover:bg-gray-200/60"
-                      }`}
+                      className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${propertySubTab === tab
+                        ? "bg-blue-600 text-white shadow-2xs"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-200/60"
+                        }`}
                     >
                       {tab}
                     </button>
@@ -523,11 +473,10 @@ export default function DashboardOverviewPage() {
                       key={tab}
                       type="button"
                       onClick={() => setDisputeSubTab(tab)}
-                      className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
-                        disputeSubTab === tab
-                          ? "bg-blue-600 text-white shadow-2xs"
-                          : "text-gray-600 hover:text-gray-900 hover:bg-gray-200/60"
-                      }`}
+                      className={`flex-1 py-2 text-xs font-semibold rounded-lg transition-all cursor-pointer ${disputeSubTab === tab
+                        ? "bg-blue-600 text-white shadow-2xs"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-200/60"
+                        }`}
                     >
                       {tab}
                     </button>
@@ -541,11 +490,10 @@ export default function DashboardOverviewPage() {
                       <div className="flex items-center justify-between">
                         <span className="text-xs font-bold text-blue-600">{item.id}</span>
                         <span
-                          className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${
-                            item.status === "Escalated" || item.status === "Disputed"
-                              ? "bg-red-100 text-red-700 border border-red-300"
-                              : "bg-amber-100 text-amber-800 border border-amber-300"
-                          }`}
+                          className={`px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${item.status === "Escalated" || item.status === "Disputed"
+                            ? "bg-red-100 text-red-700 border border-red-300"
+                            : "bg-amber-100 text-amber-800 border border-amber-300"
+                            }`}
                         >
                           {item.status}
                         </span>
@@ -582,11 +530,10 @@ export default function DashboardOverviewPage() {
 
                       {/* Status Badge: Yellow warning for Pending, Red for Flagged/Disputed */}
                       <span
-                        className={`px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 ${
-                          payout.status === "Pending"
-                            ? "bg-amber-100 text-amber-800 border border-amber-300"
-                            : "bg-red-100 text-red-700 border border-red-300"
-                        }`}
+                        className={`px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 ${payout.status === "Pending"
+                          ? "bg-amber-100 text-amber-800 border border-amber-300"
+                          : "bg-red-100 text-red-700 border border-red-300"
+                          }`}
                       >
                         {payout.status === "Pending" ? (
                           <Clock className="w-3.5 h-3.5 text-amber-700" />
