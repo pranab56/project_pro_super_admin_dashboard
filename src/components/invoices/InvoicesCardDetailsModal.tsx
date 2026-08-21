@@ -13,7 +13,6 @@ export default function InvoicesCardDetailsModal({
   onClose,
 }: InvoicesCardDetailsModalProps) {
   if (!cardTitle) return null;
-
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 animate-in fade-in zoom-in-95 duration-150">
@@ -42,6 +41,7 @@ export default function InvoicesCardDetailsModal({
               <span>Platform Fee (10%):</span>
               <span className="font-bold text-[#8E25E3]">$5,240.00</span>
             </div>
+
             <div className="flex justify-between border-t border-gray-200 pt-1">
               <span>Net Ledger Balance:</span>
               <span className="font-bold text-emerald-600">$47,160.00</span>

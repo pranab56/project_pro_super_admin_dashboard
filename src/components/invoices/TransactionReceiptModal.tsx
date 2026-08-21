@@ -19,10 +19,12 @@ export default function TransactionReceiptModal({
     <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 animate-in fade-in zoom-in-95 duration-150">
         <div className="flex items-center justify-between border-b border-gray-200 pb-3">
+
           <div>
             <span className="text-xs font-bold text-[#8E25E3]">{transaction.id}</span>
             <h3 className="text-base font-bold text-gray-900">{transaction.description}</h3>
           </div>
+
           <button
             type="button"
             onClick={onClose}
@@ -59,7 +61,7 @@ export default function TransactionReceiptModal({
               {transaction.type === "Income" ? "+" : "-"}${transaction.amount.toLocaleString()}
             </span>
           </div>
-        </div>
+        </div>  
 
         <div className="pt-2 border-t border-gray-200">
           <button

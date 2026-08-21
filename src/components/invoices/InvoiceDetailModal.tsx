@@ -45,6 +45,8 @@ export default function InvoiceDetailModal({
   const isPaid = invoice.status === "Paid";
   const isDeposit = invoice.status === "Deposit" || invoice.status === "Pending";
 
+
+
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50 p-4 animate-in fade-in duration-300">
       <div className="bg-white rounded-xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl overflow-hidden relative max-h-[95vh] flex flex-col animate-in fade-in zoom-in-95 duration-200 ease-out">
@@ -214,15 +216,15 @@ export default function InvoiceDetailModal({
               {isPaid
                 ? "Total Paid"
                 : isDeposit
-                ? "Deposit Amount"
-                : "Final Balance Due"}
+                  ? "Deposit Amount"
+                  : "Final Balance Due"}
             </span>
             <span className="text-2xl sm:text-3xl font-extrabold text-[#7C3AED]">
               {isPaid
                 ? fmt(invoice.totalAmount)
                 : isDeposit
-                ? fmt(invoice.depositAmountRequired || 820)
-                : fmt(invoice.finalBalanceDue || invoice.totalDue)}
+                  ? fmt(invoice.depositAmountRequired || 820)
+                  : fmt(invoice.finalBalanceDue || invoice.totalDue)}
             </span>
           </div>
 
@@ -231,9 +233,8 @@ export default function InvoiceDetailModal({
             <button
               type="button"
               onClick={handleDownloadPDF}
-              className={`py-3.5 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-2xl text-xs sm:text-sm transition-colors cursor-pointer flex items-center justify-center gap-2 ${
-                isPaid ? "w-full" : "flex-1"
-              }`}
+              className={`py-3.5 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-2xl text-xs sm:text-sm transition-colors cursor-pointer flex items-center justify-center gap-2 ${isPaid ? "w-full" : "flex-1"
+                }`}
             >
               <Download className="w-4 h-4 text-gray-600" />
               <span>Download PDF</span>

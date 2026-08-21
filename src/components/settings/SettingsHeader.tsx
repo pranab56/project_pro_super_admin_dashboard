@@ -18,7 +18,6 @@ export default function SettingsHeader({ onSaveChanges }: SettingsHeaderProps) {
           Manage your personal account details, update contact information, and secure your login credentials.
         </p>
       </div>
-
       <div>
         <button
           type="button"
