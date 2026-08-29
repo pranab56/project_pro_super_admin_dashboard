@@ -12,10 +12,10 @@ export default function ProviderApplicantsHeader({ pendingCount }: ProviderAppli
     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <div>
         <h1 className="text-2xl sm:text-3xl font-medium text-gray-900 tracking-tight">
-          Service Pro Network
+          Provider Applications
         </h1>
         <p className="text-xs sm:text-sm text-gray-500 font-normal mt-1">
-          Manage active Providers profiles, monitor performance ratings, and update license and insurance.
+          Manage and monitor service provider sign-ups, licenses, and insurance verification
         </p>
       </div>
 

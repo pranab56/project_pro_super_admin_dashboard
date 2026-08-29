@@ -1,7 +1,14 @@
 "use client";
 
 import React from "react";
-import { Download, Search } from "lucide-react";
+import { Calendar, Download, Search } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   MainInvoiceTab,
   PropertyInvoiceStatusFilter,
@@ -13,6 +20,8 @@ interface InvoicesFilterBarProps {
   setActiveTab: (tab: MainInvoiceTab) => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  selectedYear: string;
+  setSelectedYear: (year: string) => void;
   propertyStatusFilter: PropertyInvoiceStatusFilter;
   setPropertyStatusFilter: (status: PropertyInvoiceStatusFilter) => void;
   subscriptionStatusFilter: SubscriptionBillingStatusFilter;
@@ -30,6 +39,8 @@ export default function InvoicesFilterBar({
   setActiveTab,
   searchQuery,
   setSearchQuery,
+  selectedYear,
+  setSelectedYear,
   propertyStatusFilter,
   setPropertyStatusFilter,
   subscriptionStatusFilter,
@@ -160,14 +171,30 @@ export default function InvoicesFilterBar({
           )}
         </div>
 
-        {/* Right side: Search, Filtered Count & Export CSV */}
+        {/* Right side: Year Filter, Search, Filtered Count & Export CSV */}
         <div className="flex items-center gap-3 shrink-0">
           <span className="text-xs font-semibold text-gray-500 shrink-0 hidden sm:inline">
             {filteredCount} records
           </span>
 
+          {/* Year Filter Dropdown (Client request Image 5: 2026, 2027, 2028) */}
+          <Select value={selectedYear} onValueChange={setSelectedYear}>
+            <SelectTrigger className="w-[125px] bg-gray-50 border border-gray-200 py-2 rounded-xl text-xs font-semibold text-gray-800 h-9 focus:ring-2 focus:ring-[#8E25E3]/40 cursor-pointer">
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5 text-[#8E25E3]" />
+                <SelectValue placeholder="Year" />
+              </div>
+            </SelectTrigger>
+            <SelectContent className="bg-white border border-gray-200 text-xs font-semibold text-gray-800 shadow-md">
+              <SelectItem value="All Years">All Years</SelectItem>
+              <SelectItem value="2026">Year 2026</SelectItem>
+              <SelectItem value="2027">Year 2027</SelectItem>
+              <SelectItem value="2028">Year 2028</SelectItem>
+            </SelectContent>
+          </Select>
+
           {/* Search Input */}
-          <div className="relative w-full md:w-56">
+          <div className="relative w-full md:w-48">
             <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"

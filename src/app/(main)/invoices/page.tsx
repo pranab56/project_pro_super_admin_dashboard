@@ -27,6 +27,7 @@ export default function InvoicesPage() {
   // Main Tab & Filter States
   const [activeTab, setActiveTab] = useState<MainInvoiceTab>("property-partner-invoices");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedYear, setSelectedYear] = useState<string>("2026");
 
   // Subtab Status Filter States
   const [propertyStatusFilter, setPropertyStatusFilter] =
@@ -46,6 +47,12 @@ export default function InvoicesPage() {
   const [selectedTxn, setSelectedTxn] = useState<TransactionItem | null>(null);
   const [cardModalTitle, setCardModalTitle] = useState<string | null>(null);
 
+  // Helper date filter
+  const matchesYear = (dateStr: string) => {
+    if (selectedYear === "All Years") return true;
+    return dateStr.includes(selectedYear);
+  };
+
   // 1. Filter Property Partner Invoices
   const filteredPropertyInvoices = propertyInvoices.filter((item) => {
     const matchesSearch =
@@ -54,7 +61,7 @@ export default function InvoicesPage() {
       item.partner.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus =
       propertyStatusFilter === "All" || item.status === propertyStatusFilter;
-    return matchesSearch && matchesStatus;
+    return matchesSearch && matchesStatus && matchesYear(item.date);
   });
 
   // 2. Filter Vendor Payments
@@ -65,7 +72,7 @@ export default function InvoicesPage() {
       item.workOrder.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus =
       vendorStatusFilter === "All" || item.status === vendorStatusFilter;
-    return matchesSearch && matchesStatus;
+    return matchesSearch && matchesStatus && matchesYear(item.date);
   });
 
   // 3. Filter Platform Commissions
@@ -77,7 +84,7 @@ export default function InvoicesPage() {
       item.workOrder.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus =
       commissionStatusFilter === "All" || item.status === commissionStatusFilter;
-    return matchesSearch && matchesStatus;
+    return matchesSearch && matchesStatus && matchesYear(item.date);
   });
 
   // 4. Filter Subscription Billings
@@ -88,7 +95,7 @@ export default function InvoicesPage() {
       item.planName.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus =
       subscriptionStatusFilter === "All" || item.status === subscriptionStatusFilter;
-    return matchesSearch && matchesStatus;
+    return matchesSearch && matchesStatus && matchesYear(item.date);
   });
 
   // Calculate current active count
@@ -246,6 +253,8 @@ export default function InvoicesPage() {
         setActiveTab={setActiveTab}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        selectedYear={selectedYear}
+        setSelectedYear={setSelectedYear}
         propertyStatusFilter={propertyStatusFilter}
         setPropertyStatusFilter={setPropertyStatusFilter}
         subscriptionStatusFilter={subscriptionStatusFilter}

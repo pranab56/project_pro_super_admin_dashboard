@@ -3,6 +3,9 @@ export type UserRole =
   | "Property Manager"
   | "Contractor"
   | "Property Owner"
+  | "Property Partner"
+  | "Vendor"
+  | "Admin Asst."
   | "Admin";
 
 export type UserStatus = "Active" | "Pending" | "Suspended";
@@ -108,5 +111,35 @@ export const initialUsersList: UserItem[] = [
     status: "Active",
     joinedDate: "Feb 1, 2026",
     lastLogin: "Jun 18, 2026",
+  },
+  {
+    id: "USR-010",
+    name: "Marcus Sterling",
+    email: "m.sterling@apexpartner.com",
+    username: "msterling",
+    role: "Property Partner",
+    status: "Active",
+    joinedDate: "Mar 14, 2026",
+    lastLogin: "Today",
+  },
+  {
+    id: "USR-011",
+    name: "David Miller",
+    email: "david@fastflowvendor.com",
+    username: "dmiller",
+    role: "Vendor",
+    status: "Active",
+    joinedDate: "Jan 12, 2026",
+    lastLogin: "Yesterday",
+  },
+  {
+    id: "USR-012",
+    name: "Samantha Wright",
+    email: "s.wright@projexpro.com",
+    username: "swright",
+    role: "Admin Asst.",
+    status: "Active",
+    joinedDate: "Apr 02, 2026",
+    lastLogin: "Today",
   },
 ];

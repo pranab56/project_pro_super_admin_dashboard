@@ -56,6 +56,7 @@ export default function NotificationHeader({
             <span>Clear all</span>
           </button>
         )}
+
       </div>
     </div>
   );

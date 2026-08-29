@@ -23,11 +23,14 @@ export default function UserTable({
     switch (role) {
       case "Service Provider":
       case "Contractor":
+      case "Vendor":
         return "bg-emerald-100/90 text-emerald-700 border border-emerald-200/50";
       case "Property Manager":
       case "Property Owner":
+      case "Property Partner":
         return "bg-amber-100/90 text-amber-700 border border-amber-200/50";
       case "Admin":
+      case "Admin Asst.":
         return "bg-purple-100/90 text-[#8E25E3] border border-purple-200/50";
       default:
         return "bg-gray-100 text-gray-700";

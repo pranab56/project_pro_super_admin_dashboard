@@ -19,6 +19,10 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import RevenueChart from "@/components/overview/RevenueChart";
+import ServicesChart from "@/components/overview/ServicesChart";
+import RecentContractor from "@/components/overview/RecentContractor";
+import PendingProperty from "@/components/overview/PendingProperty";
 
 export type WorkOrderSubTab = "All" | "Pending" | "Active" | "Completed" | "Cancelled";
 export type PropertySubTab = "Properties List" | "Total Units";
@@ -525,6 +529,16 @@ export default function DashboardOverviewPage() {
             </div>
           );
         })}
+      </div>
+
+      {/* Analytics Charts & Activity Tables */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 pt-2">
+        <RevenueChart />
+        <ServicesChart />
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <RecentContractor />
+        <PendingProperty />
       </div>
 
       {/* Details Modal Container */}

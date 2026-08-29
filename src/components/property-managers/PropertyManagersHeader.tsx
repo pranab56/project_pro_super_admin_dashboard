@@ -9,7 +9,7 @@ export default function PropertyManagersHeader() {
         Property Partners
       </h1>
       <p className="text-sm text-gray-500 font-normal mt-1">
-        Manage Property partners portfolios, and track service history.
+        Monitor partner portfolios, track unit counts, and manage active subscription plans.
       </p>
     </div>
   );

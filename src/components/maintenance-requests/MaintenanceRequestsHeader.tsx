@@ -15,7 +15,7 @@ export default function MaintenanceRequestsHeader({ onOpenNewRequest }: Maintena
           Service Requests
         </h1>
         <p className="text-sm text-gray-500 font-normal mt-1">
-          Track, assign, and manage all property service jobs
+          Track, assign, and manage property requests and active work orders.
         </p>
       </div>
 

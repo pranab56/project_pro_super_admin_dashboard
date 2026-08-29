@@ -55,6 +55,9 @@ export default function UserFiltersBar({
             <SelectItem value="Contractor">Contractor</SelectItem>
             <SelectItem value="Property Manager">Property Manager</SelectItem>
             <SelectItem value="Property Owner">Property Owner</SelectItem>
+            <SelectItem value="Property Partner">Property Partner</SelectItem>
+            <SelectItem value="Vendor">Vendor</SelectItem>
+            <SelectItem value="Admin Asst.">Admin Asst.</SelectItem>
             <SelectItem value="Admin">Admin</SelectItem>
           </SelectContent>
         </Select>

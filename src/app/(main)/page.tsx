@@ -1,11 +1,7 @@
-import Overview from '../../components/overview/OverView';
+import DashboardOverviewPage from "./overview-metrics/page";
 
 const page = () => {
-  return (
-    <div>
-      <Overview />
-    </div>
-  );
+  return <DashboardOverviewPage />;
 };
 
 export default page;
