@@ -45,7 +45,7 @@ const initialNotifications: NotificationItemType[] = [
     category: "service_request",
     timestamp: "5 hours ago",
     read: true,
-    link: "/provider-applicants",
+    link: "/provider",
     actionText: "Check Application",
   },
   {

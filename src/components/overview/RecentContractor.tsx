@@ -48,7 +48,7 @@ export default function RecentContractor() {
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-base font-bold text-gray-900">Recent Contractor Registrations</h2>
                 <Link
-                    href="/provider-applicants"
+                    href="/provider"
                     className="text-xs font-semibold text-[#8E25E3] hover:underline"
                 >
                     View all

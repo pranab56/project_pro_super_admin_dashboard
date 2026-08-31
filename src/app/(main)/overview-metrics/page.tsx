@@ -19,10 +19,6 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import RevenueChart from "@/components/overview/RevenueChart";
-import ServicesChart from "@/components/overview/ServicesChart";
-import RecentContractor from "@/components/overview/RecentContractor";
-import PendingProperty from "@/components/overview/PendingProperty";
 
 export type WorkOrderSubTab = "All" | "Pending" | "Active" | "Completed" | "Cancelled";
 export type PropertySubTab = "Properties List" | "Total Units";
@@ -531,15 +527,7 @@ export default function DashboardOverviewPage() {
         })}
       </div>
 
-      {/* Analytics Charts & Activity Tables */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 pt-2">
-        <RevenueChart />
-        <ServicesChart />
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-        <RecentContractor />
-        <PendingProperty />
-      </div>
+     
 
       {/* Details Modal Container */}
       {selectedCardId && activeCard && (
@@ -1044,7 +1032,7 @@ export default function DashboardOverviewPage() {
                 <div className="pt-2">
                   <button
                     type="button"
-                    onClick={() => router.push("/provider-applicants")}
+                    onClick={() => router.push("/provider")}
                     className="w-full py-2.5 bg-purple-50 hover:bg-purple-100 border border-purple-200 text-[#8E25E3] font-semibold text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <span>View Provider Applicants Page</span>
